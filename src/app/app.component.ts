@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-tour-of-heroes';
+  title: string = 'Angular 16 Fundamentals';
+  links = [
+    { path: '/home', icon: 'home', title: 'Home' },
+    { path: '/courses', icon: 'view_list', title: 'Courses' }
+  ];
+  constructor() { }
 }

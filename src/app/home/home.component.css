@@ -1,0 +1,20 @@
+.btn-update {
+    background: green;
+    color: #fff;
+}
+
+.lesson-title {
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 0;
+    line-height: 46px;
+}
+
+.lesson-title:hover {
+    background: lightgray;
+    color: #fff;
+    cursor: pointer;
+}
+
+.debug-card {
+    margin-top: 10px;
+}
