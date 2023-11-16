@@ -1,0 +1,19 @@
+.card-box {
+    padding: 20px;
+}
+
+.cards-container {
+    width: 90%;
+    height: auto;
+    background: red;
+    color: #fff;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}

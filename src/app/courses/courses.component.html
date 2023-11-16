@@ -1,1 +1,10 @@
-<p>Lessons appear</p>
+<mat-card class="card-box">
+    <ul class="cards-container" *ngFor="let course of courses" (click)="updateBox(course)">
+        <li>{{course.title}}</li>
+        <li>{{course.description}}</li>
+        <li>{{course.percent}}</li>
+        <li>{{course.favorite}}</li>
+    </ul>
+    {{displayRawJSON | json}}
+</mat-card>
+
