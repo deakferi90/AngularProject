@@ -17,6 +17,10 @@
     text-align: center;
 }
 
+.h3-mat {
+    margin-bottom: 0;
+}
+
 .h3-mat:hover, .p-mat:hover {
     cursor: pointer;
 }

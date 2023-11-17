@@ -37,11 +37,14 @@
                         <input matInput placeholder="Description" type="text" name="description" [(ngModel)]="displayRawJSON.description">
                     </mat-form-field>
                     <section>
-                        <mat-slider class="full-width" min="0" max="100" name="percentComplete" thumbLabel [(ngModel)]="displayRawJSON.percentComplete"></mat-slider>
+                        <h4>{{displayRawJSON.percent}}% Complete</h4>
+                        <mat-slider class="full-width">
+                            <input matSliderThumb name="percent" [(ngModel)]="displayRawJSON.percent">
+                          </mat-slider>
                     </section>
                     <!-- <pre *ngIf="displayRawJSON; else elseBlock">{{displayRawJSON | json}}</pre>
                     <ng-template #elseBlock>Select course</ng-template> -->
-                </mat-card-content>
+                </mat-card-content> 
                 <mat-card-actions>
                     <button [disabled]="form.invalid" type="submit" mat-button color="primary">Submit</button>
                     <button type="button" mat-button (click)="cancel()">Cancel</button>

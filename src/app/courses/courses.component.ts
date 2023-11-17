@@ -16,7 +16,7 @@ export class CoursesComponent implements OnInit {
       id: 1,
       title: 'Hello Angular',
       description: 'Learn the fundamentals of Angular',
-      percent: 26,
+      percent: 25,
       favorite: true
     },
     {
@@ -46,7 +46,7 @@ export class CoursesComponent implements OnInit {
       id: null,
       title: '',
       description: '',
-      percentComplete: 0,
+      percent: 0,
       favorite: false
     };
 
