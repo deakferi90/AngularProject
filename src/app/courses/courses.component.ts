@@ -18,10 +18,13 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetSelectedCourse();
-    this.courses = this.coursesService.all();
+    this.coursesService.all().subscribe(data => {
+      this.courses = data;
+    });
   }
 
   resetSelectedCourse() {
+    
     const emptyCourse = {
       id: null,
       title: '',
@@ -41,14 +44,24 @@ export class CoursesComponent implements OnInit {
     this.selectedCourse = course;
   }
 
-  deleteItem(course: any) {
-    const index = this.coursesService.courses.findIndex(item => item.id === course.id);
-    if (index !== -1) {
-      this.coursesService.courses.splice(index, 1);
-    }
-    this.resetSelectedCourse();
-    return this.coursesService.courses;
-  }
+  // deleteItem(course: any) {
+  //   const index = this.coursesService.courses.findIndex(item => item.id === course.id);
+  //   if (index !== -1) {
+  //     this.coursesService.courses.splice(index, 1);
+  //   }
+  //   this.resetSelectedCourse();
+  //   return this.coursesService.courses;
+  // }
+
+  // deleteItem(course: any) {
+  //   this.coursesService.delete(course.id).subscribe(() => {
+  //     // Refresh the courses list after deletion
+  //     this.coursesService.all().subscribe(data => {
+  //       this.courses = data;
+  //       this.resetSelectedCourse();
+  //     });
+  //   });
+  // }
 
   saveCourse(course: { id: any; }) {
     if(course.id) {
@@ -59,7 +72,13 @@ export class CoursesComponent implements OnInit {
   }
 
   deleteCourse(courseId : any) {
-    this.coursesService.delete(courseId);
+    const index = this.courses.findIndex((item: { id: any; }) => item.id === courseId);
+
+    if (index !== -1) {
+      this.courses.splice(index, 1);
+    }
+
+    return this.courses;
   }
 
   cancel() {

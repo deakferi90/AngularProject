@@ -13,7 +13,7 @@
                             <h3 matLine class="h3-mat">{{course.title}}</h3>
                             <p matLine class="p-mat">{{course.description}}</p>
                         </div>
-                        <button (click)="deleteItem(course)" mat-icon-button color="warn" class="btn-delete">
+                        <button (click)="deleteCourse(course.id)" mat-icon-button color="warn" class="btn-delete">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </div>
@@ -46,8 +46,6 @@
                     <section>
                         <mat-checkbox class="example-margin" name="favorite" [(ngModel)]="selectedCourse.favorite">Check it!</mat-checkbox>
                     </section>
-                    <!-- <pre *ngIf="selectedCourse; else elseBlock">{{selectedCourse | json}}</pre>
-                    <ng-template #elseBlock>Select course</ng-template> -->
                 </mat-card-content> 
                 <mat-card-actions>
                     <button [disabled]="form.invalid" type="submit" mat-button color="primary">Submit</button>

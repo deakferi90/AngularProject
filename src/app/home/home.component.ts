@@ -25,8 +25,6 @@ export class HomeComponent implements OnInit {
   }
 
   selectLesson(lesson: Lesson) {
-    console.log('select lesson fired', lesson);
-    console.log(lesson);
-    //this.courseLessons = this.lessonsService.courseLessons;
+    this.lessons = lesson;
   }
 }
