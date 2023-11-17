@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoursesService } from '../shared/services/courses.service';
 
 @Component({
   selector: 'app-courses',
@@ -10,35 +11,14 @@ export class CoursesComponent implements OnInit {
   //step 1: display courses using ngfor
   //step 2: add event handler to select home
   //step 3: display raw json of selected course
-  displayRawJSON: any = '';
-  courses = [
-    {
-      id: 1,
-      title: 'Hello Angular',
-      description: 'Learn the fundamentals of Angular',
-      percent: 25,
-      favorite: true
-    },
-    {
-      id: 2,
-      title: 'Javascript the hard parts',
-      description: 'Learn the hard parts of Javascript',
-      percent: 50,
-      favorite: true
-    },
-    {
-      id: 3,
-      title: 'Feri is learning Angular',
-      description: 'But first learn the hard parts of Javascript',
-      percent: 75,
-      favorite: true
-    },
-  ]
+  selectedCourse: any = null;
+  courses: any = null;
 
-  constructor() {}
+  constructor(private coursesService: CoursesService) {}
 
   ngOnInit(): void {
     this.resetSelectedCourse();
+    this.courses = this.coursesService.all();
   }
 
   resetSelectedCourse() {
@@ -50,27 +30,36 @@ export class CoursesComponent implements OnInit {
       favorite: false
     };
 
-    this.displayRawJSON = emptyCourse;
+    this.selectedCourse = emptyCourse;
   }
 
   updateBox(course: any) {
-    this.displayRawJSON = course;
+    this.selectedCourse = course;
   }
 
-  selectedCourse(course: (course: any) => void) {
+  selectedCourseTwo(course: (course: any) => void) {
     this.selectedCourse = course;
   }
 
   deleteItem(course: any) {
-    const index = this.courses.findIndex(item => item.id === course.id);
+    const index = this.coursesService.courses.findIndex(item => item.id === course.id);
     if (index !== -1) {
-      this.courses.splice(index, 1);
+      this.coursesService.courses.splice(index, 1);
     }
-    return this.courses;
+    this.resetSelectedCourse();
+    return this.coursesService.courses;
   }
 
-  saveCourse() {
-    console.log('save course');
+  saveCourse(course: { id: any; }) {
+    if(course.id) {
+    this.coursesService.update(course);
+    } else {
+      this.coursesService.create(course);
+    }
+  }
+
+  deleteCourse(courseId : any) {
+    this.coursesService.delete(courseId);
   }
 
   cancel() {

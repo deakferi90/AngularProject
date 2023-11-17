@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Lesson } from './home.interface';
+import { LessonsService } from '../shared/services/lessons.service';
 
 @Component({
   selector: 'app-home',
@@ -10,24 +11,22 @@ export class HomeComponent implements OnInit {
   title: string = 'Hello Workshop';
   themeColor = 'blue';
   currentLesson: Lesson | null = null;
+  lessons: any = null;
 
-  courseLessons = [
-    { title: 'Hello Angular' },
-    { title: 'Component Fundamentals' },
-    { title: 'Template Driven Forms' },
-    { title: 'Angular Services' },
-    { title: 'Server Communication' },
-    { title: 'Component Driven Architecture' },
-    { title: 'Angular Routing' },
-    { title: 'Unit Testing Fundamentals' },
-  ]
-  constructor() { }
+  //step 1 create lessons service
+  //hint ng g shared/services/lessons
+  //step 2 add the lessons service to app.module
+  //step 3 inject lessons service into component
+  //step 4 move lessons to a service and consume in component
+  constructor(public lessonsService: LessonsService) { }
 
   ngOnInit(): void {
+    this.lessons = this.lessonsService.all();
   }
 
   selectLesson(lesson: Lesson) {
     console.log('select lesson fired', lesson);
-    this.currentLesson = lesson;
+    console.log(lesson);
+    //this.courseLessons = this.lessonsService.courseLessons;
   }
 }
