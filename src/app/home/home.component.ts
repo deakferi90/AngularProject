@@ -9,7 +9,7 @@ import { Lesson } from './home.interface';
 export class HomeComponent implements OnInit {
   title: string = 'Hello Workshop';
   themeColor = 'blue';
-  currentLesson = '';
+  currentLesson: Lesson | null = null;
 
   courseLessons = [
     { title: 'Hello Angular' },
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectLesson(lesson: any) {
+  selectLesson(lesson: Lesson) {
     console.log('select lesson fired', lesson);
     this.currentLesson = lesson;
   }

@@ -1,5 +1,8 @@
 .card-box {
     padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
 
 .cards-container {
@@ -14,6 +17,52 @@
     text-align: center;
 }
 
+.h3-mat:hover, .p-mat:hover {
+    cursor: pointer;
+}
+
 li {
     list-style: none;
+}
+
+.course-list-title {
+    text-decoration: underline;
+}
+
+.mat-mdc-list-item:hover {
+    cursor: pointer;
+}
+
+.courses-containers {
+    display: flex;
+    justify-content: center;
+}
+
+.courses-details {
+    margin-left: 20px;
+}
+
+.btn-delete {
+    float: right;
+}
+
+.course-list-container {
+    display: flex;
+}
+
+.course-list-container:hover {
+    background: lightgray;
+    cursor: pointer;
+} 
+
+.course-list-item {
+    width: 90%;
+}
+
+.mat-mdc-card-content {
+    display: grid;
+}
+
+.full-width {
+    width: 100%;
 }
