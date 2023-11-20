@@ -2,40 +2,21 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+const BASE_URL = 'http://localhost:3000/courses'; 
+
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class CoursesService {
+  //private model = 'courses';
   private apiUrl = 'assets/courses.json'; 
-  //   let courses = [
-  //   {
-  //     id: 1,
-  //     title: 'Hello Angular',
-  //     description: 'Learn the fundamentals of Angular',
-  //     percent: 25,
-  //     favorite: true
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'Javascript the hard parts',
-  //     description: 'Learn the hard parts of Javascript',
-  //     percent: 50,
-  //     favorite: true
-  //   },
-  //   {
-  //     id: 3,
-  //     title: 'Feri is learning Angular',
-  //     description: 'But first learn the hard parts of Javascript',
-  //     percent: 75,
-  //     favorite: true
-  //   },
-  // ]
+  courses: any = null;
   constructor(private http: HttpClient) { }
 
   all(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(this.getUrl());
   }
 
   find(courseId: any) {
@@ -43,14 +24,26 @@ export class CoursesService {
   }
 
   create(course: any) {
-    console.log('create course', course);
+    return this.http.post(this.getUrl(), course);
   }
 
   update(course: any) {
-    console.log('update course', course);
+    return this.http.put(`${this.apiUrl}${course.id}`, course);
+    //console.log('update course', course);
+  }
+
+  deleteResource(id: number): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url);
   }
 
   delete(courseId: any) {
-    console.log('item deleted', courseId);
+    console.log('item deleted', `${this.apiUrl}/${courseId}`);
+    //const url = `${this.apiUrl}/${courseId}`;
+    return this.http.delete(`${BASE_URL}/${courseId}`);
+  }
+
+  private getUrl() {
+    return `${BASE_URL}`;
   }
 }

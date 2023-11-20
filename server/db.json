@@ -1,0 +1,39 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Angular 16 Fundamentals",
+      "description": "Learn the fundaments of Angular",
+      "percent": 26,
+      "favorite": true
+    },
+    {
+      "id": 2,
+      "title": "Learning Angular",
+      "description": "Learn the fundaments of Javascript first",
+      "percent": 50,
+      "favorite": true
+    },
+    {
+      "id": 3,
+      "title": "Javascript",
+      "description": "Feri is learning Angular",
+      "percent": 0,
+      "favorite": false
+    },
+    {
+      "id": 4,
+      "title": "ewwe",
+      "description": "ewwe",
+      "percent": 0,
+      "favorite": false
+    },
+    {
+      "id": 5,
+      "title": "Trying Update",
+      "description": "Trying Update",
+      "percent": 0,
+      "favorite": false
+    }
+  ]
+}

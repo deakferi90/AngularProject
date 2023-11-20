@@ -12,12 +12,6 @@ export class HomeComponent implements OnInit {
   themeColor = 'blue';
   currentLesson: Lesson | null = null;
   lessons: any = null;
-
-  //step 1 create lessons service
-  //hint ng g shared/services/lessons
-  //step 2 add the lessons service to app.module
-  //step 3 inject lessons service into component
-  //step 4 move lessons to a service and consume in component
   constructor(public lessonsService: LessonsService) { }
 
   ngOnInit(): void {

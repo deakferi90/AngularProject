@@ -8,9 +8,9 @@ import { CoursesService } from '../shared/services/courses.service';
 })
 export class CoursesComponent implements OnInit {
   //challenge
-  //step 1: display courses using ngfor
-  //step 2: add event handler to select home
-  //step 3: display raw json of selected course
+  //step 1: complete remote update call
+  //step 2: complete remote delete call
+  //step 3: fix UI on completed operation
   selectedCourse: any = null;
   courses: any = null;
 
@@ -18,9 +18,7 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetSelectedCourse();
-    this.coursesService.all().subscribe(data => {
-      this.courses = data;
-    });
+    this.loadCourses();
   }
 
   resetSelectedCourse() {
@@ -44,31 +42,18 @@ export class CoursesComponent implements OnInit {
     this.selectedCourse = course;
   }
 
-  // deleteItem(course: any) {
-  //   const index = this.coursesService.courses.findIndex(item => item.id === course.id);
-  //   if (index !== -1) {
-  //     this.coursesService.courses.splice(index, 1);
-  //   }
-  //   this.resetSelectedCourse();
-  //   return this.coursesService.courses;
-  // }
-
-  // deleteItem(course: any) {
-  //   this.coursesService.delete(course.id).subscribe(() => {
-  //     // Refresh the courses list after deletion
-  //     this.coursesService.all().subscribe(data => {
-  //       this.courses = data;
-  //       this.resetSelectedCourse();
-  //     });
-  //   });
-  // }
-
   saveCourse(course: { id: any; }) {
     if(course.id) {
     this.coursesService.update(course);
     } else {
-      this.coursesService.create(course);
+      this.coursesService.create(course).subscribe(result => this.loadCourses());
     }
+  }
+
+  loadCourses() {
+    return this.coursesService.all().subscribe(data => {
+      this.courses = data;
+    });
   }
 
   deleteCourse(courseId : any) {
