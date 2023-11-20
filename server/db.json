@@ -20,6 +20,13 @@
       "description": "Feri is learning Angular",
       "percent": 30,
       "favorite": false
+    },
+    {
+      "id": 4,
+      "title": "reactewewewe",
+      "description": "and redux is also great",
+      "percent": 0,
+      "favorite": false
     }
   ]
 }
