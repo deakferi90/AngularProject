@@ -44,9 +44,9 @@ export class CoursesComponent implements OnInit {
 
   saveCourse(course: { id: any; }) {
     if(course.id) {
-    this.coursesService.update(course);
+    this.coursesService.update(course).subscribe(() => this.loadCourses());
     } else {
-      this.coursesService.create(course).subscribe(result => this.loadCourses());
+      this.coursesService.create(course).subscribe(() => this.loadCourses());
     }
   }
 
@@ -57,13 +57,7 @@ export class CoursesComponent implements OnInit {
   }
 
   deleteCourse(courseId : any) {
-    const index = this.courses.findIndex((item: { id: any; }) => item.id === courseId);
-
-    if (index !== -1) {
-      this.courses.splice(index, 1);
-    }
-
-    return this.courses;
+    return this.coursesService.delete(courseId).subscribe(() => this.loadCourses() && this.resetSelectedCourse());
   }
 
   cancel() {

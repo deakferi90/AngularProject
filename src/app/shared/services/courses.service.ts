@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const BASE_URL = 'http://localhost:3000/courses'; 
+const BASE_URL = 'http://localhost:3000'; 
 
 
 @Injectable({
@@ -10,9 +10,8 @@ const BASE_URL = 'http://localhost:3000/courses';
 })
 
 export class CoursesService {
-  //private model = 'courses';
-  private apiUrl = 'assets/courses.json'; 
   courses: any = null;
+  model: string = 'courses';
   constructor(private http: HttpClient) { }
 
   all(): Observable<any[]> {
@@ -28,22 +27,18 @@ export class CoursesService {
   }
 
   update(course: any) {
-    return this.http.put(`${this.apiUrl}${course.id}`, course);
-    //console.log('update course', course);
-  }
-
-  deleteResource(id: number): Observable<any> {
-    const url = `${this.apiUrl}/${id}`;
-    return this.http.delete(url);
+    return this.http.put(`${this.getUrlById(course.id)}`, course);
   }
 
   delete(courseId: any) {
-    console.log('item deleted', `${this.apiUrl}/${courseId}`);
-    //const url = `${this.apiUrl}/${courseId}`;
-    return this.http.delete(`${BASE_URL}/${courseId}`);
+    return this.http.delete(`${this.getUrlById(courseId)}`);
   }
 
   private getUrl() {
-    return `${BASE_URL}`;
+    return `${BASE_URL}/${this.model}`;
+  }
+
+  private getUrlById(id: any) {
+    return `${this.getUrl()}/${id}`;
   }
 }
