@@ -27,11 +27,11 @@ export class CoursesService {
   }
 
   update(course: any) {
-    return this.http.put(`${this.getUrlById(course.id)}`, course);
+    return this.http.put(this.getUrlById(course.id), course);
   }
 
   delete(courseId: any) {
-    return this.http.delete(`${this.getUrlById(courseId)}`);
+    return this.http.delete(this.getUrlById(courseId));
   }
 
   private getUrl() {

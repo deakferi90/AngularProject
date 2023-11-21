@@ -12,6 +12,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { CoursesService } from './shared/services/courses.service';
 import { LessonsService } from './shared/services/lessons.service';
 import { CourseListComponent } from './courses/courses-list/courses-list.component';
+import { CoursesDetailsComponent } from './courses/courses-details/courses-details.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CourseListComponent } from './courses/courses-list/courses-list.compone
     ItemsComponent,
     HomeComponent,
     CoursesComponent,
-    CourseListComponent
+    CourseListComponent,
+    CoursesDetailsComponent,
   ],
   imports: [
     BrowserModule,
