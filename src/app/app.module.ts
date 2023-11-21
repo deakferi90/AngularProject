@@ -11,8 +11,10 @@ import { HomeComponent } from './home/home.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CoursesService } from './shared/services/courses.service';
 import { LessonsService } from './shared/services/lessons.service';
-import { CourseListComponent } from './courses/courses-list/courses-list.component';
-import { CoursesDetailsComponent } from './courses/courses-details/courses-details.component';
+import { LoginComponent } from './login/login.component';
+import { UsersComponent } from './users/users.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -21,8 +23,8 @@ import { CoursesDetailsComponent } from './courses/courses-details/courses-detai
     ItemsComponent,
     HomeComponent,
     CoursesComponent,
-    CourseListComponent,
-    CoursesDetailsComponent,
+    LoginComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,9 @@ import { CoursesDetailsComponent } from './courses/courses-details/courses-detai
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [
     CoursesService,
