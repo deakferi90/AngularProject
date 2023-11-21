@@ -44,9 +44,9 @@ export class CoursesComponent implements OnInit {
 
   saveCourse(course: { id: any; }) {
     if(course.id) {
-    this.coursesService.update(course).subscribe(() => this.loadCourses());
+    this.coursesService.update(course).subscribe(() => this.loadCourses() && this.resetSelectedCourse());
     } else {
-      this.coursesService.create(course).subscribe(() => this.loadCourses());
+      this.coursesService.create(course).subscribe(() => this.loadCourses() && this.resetSelectedCourse());
     }
   }
 

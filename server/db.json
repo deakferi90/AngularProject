@@ -23,24 +23,17 @@
     },
     {
       "id": 4,
-      "title": "New Course",
-      "description": "Test",
-      "percent": 18,
-      "favorite": true
+      "title": "ddfd",
+      "description": "dfdfdf",
+      "percent": 0,
+      "favorite": false
     },
     {
       "id": 5,
-      "title": "rtrt",
-      "description": "",
-      "percent": 1,
-      "favorite": true
-    },
-    {
-      "id": 6,
-      "title": "fdf",
-      "description": "dfsdfsd",
+      "title": "fdfdd",
+      "description": "sddssd",
       "percent": 0,
-      "favorite": false
+      "favorite": true
     }
   ]
 }
