@@ -54,19 +54,21 @@ li {
     display: flex;
 }
 
+.full-width {
+    width: 100%;
+}
+
+.course-list-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .course-list-container:hover {
     background: lightgray;
     cursor: pointer;
 } 
 
-.course-list-item {
-    width: 90%;
-}
 
 .mat-mdc-card-content {
     display: grid;
-}
-
-.full-width {
-    width: 100%;
 }

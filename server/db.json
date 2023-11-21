@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Angular 16 Fundamentals",
       "description": "Learn the fundaments of Angular",
-      "percent": 26,
+      "percent": 30,
       "favorite": true
     },
     {
@@ -19,6 +19,27 @@
       "title": "Javascript",
       "description": "Feri is learning Angular",
       "percent": 30,
+      "favorite": false
+    },
+    {
+      "id": 4,
+      "title": "New Course",
+      "description": "Test",
+      "percent": 18,
+      "favorite": true
+    },
+    {
+      "id": 5,
+      "title": "rtrt",
+      "description": "",
+      "percent": 1,
+      "favorite": true
+    },
+    {
+      "id": 6,
+      "title": "fdf",
+      "description": "dfsdfsd",
+      "percent": 0,
       "favorite": false
     }
   ]

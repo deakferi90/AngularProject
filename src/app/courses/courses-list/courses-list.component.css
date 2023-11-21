@@ -1,0 +1,14 @@
+.course-list-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.course-list-container:hover {
+    background: lightgray;
+    cursor: pointer;
+} 
+
+
+.mat-mdc-card-content {
+    display: grid;
+}

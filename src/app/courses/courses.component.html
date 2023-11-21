@@ -1,25 +1,6 @@
 <div class="courses-containers">
     <div class="courses-list">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>
-                    Course List
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <mat-list>
-                    <div class="course-list-container" (click)="updateBox(course)" *ngFor="let course of courses">
-                        <div class="course-list-item">
-                            <h3 matLine class="h3-mat">{{course.title}}</h3>
-                            <p matLine class="p-mat">{{course.description}}</p>
-                        </div>
-                        <button (click)="deleteCourse(course.id)" mat-icon-button color="warn" class="btn-delete">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </div>
-                </mat-list>
-            </mat-card-content>
-        </mat-card>
+        <app-course-list [courses]="courses"></app-course-list>
     </div>
     <div class="courses-details">
         <mat-card>
@@ -52,8 +33,6 @@
                     <button type="button" mat-button (click)="cancel()">Cancel</button>
                 </mat-card-actions>
             </form>
-            <pre>{{form.value | json}}</pre>
-            <pre>{{form.valid | json}}</pre> 
         </mat-card>
     </div>  
 </div>

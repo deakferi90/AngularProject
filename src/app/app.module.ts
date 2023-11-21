@@ -11,13 +11,16 @@ import { HomeComponent } from './home/home.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CoursesService } from './shared/services/courses.service';
 import { LessonsService } from './shared/services/lessons.service';
+import { CourseListComponent } from './courses/courses-list/courses-list.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemsComponent,
     HomeComponent,
-    CoursesComponent
+    CoursesComponent,
+    CourseListComponent
   ],
   imports: [
     BrowserModule,
