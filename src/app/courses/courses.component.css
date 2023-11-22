@@ -39,7 +39,7 @@ li {
 
 .courses-containers {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .courses-details {

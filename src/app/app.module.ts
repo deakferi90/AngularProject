@@ -13,10 +13,10 @@ import { HomeComponent } from './home/home.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CoursesService } from './shared/services/courses.service';
 import { LessonsService } from './shared/services/lessons.service';
-import { UsersComponent } from './users/users.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatSliderModule } from '@angular/material/slider';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({

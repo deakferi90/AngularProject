@@ -19,6 +19,13 @@
       "title": "Angular is great",
       "description": "You Just have learn deeply the basics",
       "percent": 60,
+      "favorite": false
+    },
+    {
+      "id": 4,
+      "title": "Added another one",
+      "description": "This is updating in the JSON file",
+      "percent": 25,
       "favorite": true
     }
   ]

@@ -5,3 +5,8 @@
 .mat-mdc-card-content {
     display: grid;
 }
+
+.mat-mdc-card {
+    border-radius: 20px;
+    margin-top: 20px;
+}
