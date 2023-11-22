@@ -6,12 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ItemsComponent } from './items/items.component';
+import { CoursesListComponent } from './courses/courses-list/courses-list.component';
 import { MaterialModule } from './material.module';
 import { HomeComponent } from './home/home.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CoursesService } from './shared/services/courses.service';
 import { LessonsService } from './shared/services/lessons.service';
-import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -23,7 +23,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     ItemsComponent,
     HomeComponent,
     CoursesComponent,
-    LoginComponent,
+    CoursesListComponent,
     UsersComponent,
   ],
   imports: [

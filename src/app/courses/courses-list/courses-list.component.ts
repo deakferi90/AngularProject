@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./courses-list.component.css']
 })
 export class CoursesListComponent {
-  @Input() courses: any;
+  @Input() courses: any = [];
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();
 }
