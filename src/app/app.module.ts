@@ -16,6 +16,7 @@ import { LessonsService } from './shared/services/lessons.service';
 import { UsersComponent } from './users/users.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     HttpClientModule,
     MaterialModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSliderModule
   ],
   providers: [
     CoursesService,

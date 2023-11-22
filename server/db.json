@@ -4,14 +4,14 @@
       "id": 1,
       "title": "Angular 16 Fundamentals",
       "description": "Learn the fundaments of Angular",
-      "percent": 47,
-      "favorite": true
+      "percent": 50,
+      "favorite": false
     },
     {
       "id": 2,
-      "title": "Angular",
-      "description": "This is a test",
-      "percent": 39,
+      "title": "Feri is Learning Angular Material",
+      "description": "But first he had to improve his Javascript knowledge",
+      "percent": 40,
       "favorite": true
     }
   ]

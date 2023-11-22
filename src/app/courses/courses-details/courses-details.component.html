@@ -19,13 +19,8 @@
       </mat-form-field>
       <section>
         <h4>{{selectedCourse.percent}}% Complete</h4>
-        <mat-slider
-          class="full-width"
-          min="0"
-          max="100"
-          name="percent"
-          thumbLabel
-          [(ngModel)]="selectedCourse.percent">
+        <mat-slider class="full-width">
+          <input matSliderThumb name="percent" [(ngModel)]="selectedCourse.percent">
         </mat-slider>
       </section>
       <section>
