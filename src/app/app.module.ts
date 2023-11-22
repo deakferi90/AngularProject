@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ItemsComponent } from './items/items.component';
 import { CoursesListComponent } from './courses/courses-list/courses-list.component';
+import { CoursesDetailsComponent } from './courses/courses-details/courses-details.component';
 import { MaterialModule } from './material.module';
 import { HomeComponent } from './home/home.component';
 import { CoursesComponent } from './courses/courses.component';
@@ -24,6 +25,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     HomeComponent,
     CoursesComponent,
     CoursesListComponent,
+    CoursesDetailsComponent,
     UsersComponent,
   ],
   imports: [
