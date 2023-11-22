@@ -322,3 +322,7 @@
 .mdc-button {
   display: block;
 }
+.hidden {
+  display: none;
+}
+
