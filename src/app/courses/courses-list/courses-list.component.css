@@ -1,0 +1,29 @@
+.course-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.course-container:hover {
+    background: lightgray;
+    cursor: pointer;
+}
+
+.course-text p,
+.course-text h3 {
+    margin-bottom: 0px;
+}
+
+.course-text p {
+    margin-bottom: 20px;
+}
+
+.mat-mdc-button-base {
+    margin-top: -6px;
+}
+
+.btn-delete {
+    background: transparent;
+    border: none;
+    color: red;
+}

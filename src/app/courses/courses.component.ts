@@ -34,7 +34,7 @@ export class CoursesComponent implements OnInit {
     this.selectedCourse = emptyCourse;
   }
 
-  updateBox(course: any) {
+  selectCourse(course: any) {
     this.selectedCourse = course;
   }
 

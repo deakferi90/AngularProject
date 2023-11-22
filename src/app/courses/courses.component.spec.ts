@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed, async, waitForAsync } from '@angular/core/te
 import { CoursesComponent } from './courses.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { CoursesService } from '../shared/services/courses.service';
 import { DebugElement } from '@angular/core';
 
@@ -15,7 +16,8 @@ describe('CoursesComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CoursesComponent],
-      imports: [HttpClientModule, MatCardModule]
+      imports: [HttpClientModule, MatCardModule, MatButtonModule],
+      providers: [CoursesService],
     })
     .compileComponents()
   }))

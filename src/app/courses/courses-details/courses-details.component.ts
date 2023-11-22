@@ -1,63 +1,21 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CoursesService } from 'src/app/shared/services/courses.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-courses-details',
   templateUrl: './courses-details.component.html',
   styleUrls: ['./courses-details.component.css']
 })
-export class CoursesDetailsComponent implements OnInit {
-  selectedCourse: any = null;
-  courses: any = null;
-  @Input() course: any;
-  constructor(private coursesService: CoursesService) {}
+export class CoursesDetailsComponent {
+  selectedCourse: any;
+  originalTitle: any;
 
-  ngOnInit(): void {
-    this.resetSelectedCourse();
-    this.loadCourses();
-  }
+  @Output() saved = new EventEmitter();
+  @Output() cancelled = new EventEmitter();
 
-  resetSelectedCourse() {
-    
-    const emptyCourse = {
-      id: null,
-      title: '',
-      description: '',
-      percent: 0,
-      favorite: false
-    };
-
-    this.selectedCourse = emptyCourse;
-  }
-
-  updateBox(course: any) {
-    this.selectedCourse = course;
-  }
-
-  selectedCourseTwo(course: (course: any) => void) {
-    this.selectedCourse = course;
-  }
-
-  saveCourse(course: { id: any; }) {
-    if(course.id) {
-    this.coursesService.update(course).subscribe(() => this.loadCourses());
-    } else {
-      this.coursesService.create(course).subscribe(() => this.loadCourses());
+  @Input() set course(value:any) {
+    if (value) {
+      this.selectedCourse = Object.assign({}, value);
+      this.originalTitle = value.title;
     }
-  }
-
-  loadCourses() {
-    return this.coursesService.all().subscribe(data => {
-      this.courses = data;
-    });
-  }
-
-  deleteCourse(courseId : number) {
-    return this.coursesService.delete(courseId).subscribe(() => this.loadCourses() && this.resetSelectedCourse());
-  }
-
-  cancel() {
-    this.resetSelectedCourse();
-    this.loadCourses();
-  }
+  };
 }

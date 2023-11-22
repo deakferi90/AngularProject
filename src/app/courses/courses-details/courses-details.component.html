@@ -1,31 +1,41 @@
 <mat-card>
-    <mat-card-header>
-        <mat-card-title>
-            <span *ngIf="selectedCourse.id; else noCourse">{{selectedCourse.title}}</span>
-            <ng-template #noCourse>Select Course</ng-template>
-        </mat-card-title>
-    </mat-card-header>
-    <form #form="ngForm" (submit)="saveCourse(selectedCourse)">
-        <mat-card-content>
-            <mat-form-field>
-                <input matInput placeholder="Title" type="text" name="title" [(ngModel)]="selectedCourse.title" required>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Description" type="text" name="description" [(ngModel)]="selectedCourse.description">
-            </mat-form-field>
-            <section>
-                <h4>{{selectedCourse.percent}}% Complete</h4>
-                <mat-slider class="full-width">
-                    <input matSliderThumb name="percent" [(ngModel)]="selectedCourse.percent">
-                  </mat-slider>
-            </section>
-            <section>
-                <mat-checkbox class="example-margin" name="favorite" [(ngModel)]="selectedCourse.favorite">Check it!</mat-checkbox>
-            </section>
-        </mat-card-content> 
-        <mat-card-actions>
-            <button [disabled]="form.invalid" type="submit" mat-button color="primary">Submit</button>
-            <button type="button" mat-button (click)="cancel()">Cancel</button>
-        </mat-card-actions>
-    </form>
+  <mat-card-header>
+    <mat-card-title>
+      <span *ngIf="selectedCourse.id; else noSelection">{{selectedCourse.title}}</span>
+      <ng-template #noSelection>Select Course</ng-template>
+    </mat-card-title>
+  </mat-card-header>
+  <form #form="ngForm" (submit)="saveCourse(selectedCourse)">
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput placeholder="Title"
+          type="text" name="title" required
+          [(ngModel)]="selectedCourse.title">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Description"
+          type="text" name="description"
+          [(ngModel)]="selectedCourse.description">
+      </mat-form-field>
+      <section>
+        <h4>{{selectedCourse.percentComplete}}% Complete</h4>
+        <mat-slider
+          class="full-width"
+          min="0"
+          max="100"
+          name="percentComplete"
+          thumbLabel
+          [(ngModel)]="selectedCourse.percentComplete"
+        >
+        </mat-slider>
+      </section>
+      <section>
+      </section>
+      <mat-checkbox name="favorite" [(ngModel)]="selectedCourse.favorite" ></mat-checkbox>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [disabled]="form.invalid" type="submit" mat-button color="primary">Submit</button>
+      <button type="button" mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </form>
 </mat-card>
