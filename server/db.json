@@ -11,7 +11,14 @@
       "id": 2,
       "title": "Feri is Learning Angular Material",
       "description": "But first he had to improve his Javascript knowledge",
-      "percent": 40,
+      "percent": 70,
+      "favorite": true
+    },
+    {
+      "id": 3,
+      "title": "Angular is great",
+      "description": "You Just have learn deeply the basics",
+      "percent": 60,
       "favorite": true
     }
   ]

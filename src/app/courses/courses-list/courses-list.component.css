@@ -6,6 +6,7 @@
 
 .course-container:hover {
     background: lightgray;
+    color: #fff;
     cursor: pointer;
 }
 
