@@ -19,14 +19,48 @@
       "title": "Angular is great",
       "description": "You Just have learn deeply the basics",
       "percent": 60,
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 4,
-      "title": "Added another one",
+      "title": "Just added another one",
       "description": "This is updating in the JSON file",
       "percent": 25,
       "favorite": true
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "ferenc.deak",
+      "lastName": "Deak",
+      "firstName": "Ferenc-Jozsef",
+      "email": "ferenc.deak@gmail.com",
+      "age": 25
+    },
+    {
+      "id": 2,
+      "username": "ferike",
+      "lastName": "Deak",
+      "firstName": "Ferenc",
+      "email": "deak_ferenc_jozsef@yahoo.com",
+      "age": 30
+    },
+    {
+      "id": 3,
+      "username": "deakferi90",
+      "lastName": "Deak",
+      "firstName": "Ilona",
+      "email": "deakferijozsi@gmail.com",
+      "age": 22
+    },
+    {
+      "id": 4,
+      "username": "kyle",
+      "lastName": "Kyle",
+      "firstName": "Simpson",
+      "email": "kylesimpson@gmail.com",
+      "age": 42
     }
   ]
 }

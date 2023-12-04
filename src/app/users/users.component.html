@@ -1,1 +1,13 @@
-<h1>{{title}}</h1>
+<div class="input-container">
+    <input #inputElement (keyup)="filterUsers()"/>
+</div>
+<div class="users-card">
+    <div *ngFor="let user of filteredUsers">
+        <mat-card>
+            <span class="name">{{user.lastName}}</span>
+            <span>{{user.firstName}}</span>
+            <button class="btn btn-view">View</button>
+            <button class="btn btn-delete" (click)="deleteUser(user.id)">X</button>
+        </mat-card>
+    </div>
+</div>

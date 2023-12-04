@@ -32,4 +32,5 @@
 .mat-mdc-card {
     border-radius: 20px;
     margin-top: 20px;
+    min-height: 400px;
 }

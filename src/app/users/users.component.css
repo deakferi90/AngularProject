@@ -1,0 +1,54 @@
+.name {
+    margin: 15px 3px;
+}
+
+.users-card {
+    width: 200px;
+    margin: 50px;
+}
+
+.users-card {
+    width: 90vw;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+@media screen and (max-width: 1280px) {
+    .users-card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.mdc-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-view {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background: orange;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-delete {
+    padding: 5px 10px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.input-container {
+    margin: 30px 90px;
+}
