@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CoursesComponent } from './courses/courses.component';
 import { UsersComponent } from './users/users.component';
+import { UsersDetailsComponent } from './users/users-details/users-details.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
     loadChildren:() => import('./login/login.module').then(m => m.LoginModule)
   }, //-this is lazy loading within this lazy loading module within
   {path: 'users', component: UsersComponent},
+  { path: 'users/:index', component: UsersDetailsComponent },
   {path: '**', redirectTo: '/home'}
 ];
 

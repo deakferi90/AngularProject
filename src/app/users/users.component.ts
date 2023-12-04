@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UsersService } from '../shared/services/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -12,10 +13,14 @@ export class UsersComponent implements OnInit {
   @ViewChild('inputElement', { static: false })
   inputElement!: ElementRef;
   usersList: any = null;
-  constructor(public users: UsersService) {}
+  constructor(public users: UsersService, private router: Router) {}
 
   ngOnInit() {
     this.getUsers();
+  }
+
+  viewDetails(index: number) {
+    this.router.navigate(['/users', index + 1]);
   }
 
   getUsers() {

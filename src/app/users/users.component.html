@@ -2,11 +2,11 @@
     <input #inputElement (keyup)="filterUsers()"/>
 </div>
 <div class="users-card">
-    <div *ngFor="let user of filteredUsers">
+    <div *ngFor="let user of filteredUsers; let i = index">
         <mat-card>
             <span class="name">{{user.lastName}}</span>
             <span>{{user.firstName}}</span>
-            <button class="btn btn-view">View</button>
+            <button (click)="viewDetails(i)" class="btn btn-view">View</button>
             <button class="btn btn-delete" (click)="deleteUser(user.id)">X</button>
         </mat-card>
     </div>
