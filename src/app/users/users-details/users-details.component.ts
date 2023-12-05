@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { User } from 'src/app/shared/interfaces/user.interface';
 import { UsersService } from 'src/app/shared/services/users.service';
 
@@ -10,12 +10,16 @@ import { UsersService } from 'src/app/shared/services/users.service';
 })
 export class UsersDetailsComponent implements OnInit {
   userData: any | User
-  constructor(private route: ActivatedRoute, private user: UsersService) {}
+  constructor(private route: ActivatedRoute, private router: Router ,private user: UsersService) {}
 
   ngOnInit() {
     let userId = this.route.snapshot.paramMap.get('id');
     userId && this.user.getUser(userId).subscribe((res) => {
       this.userData = res;
     })
+  }
+
+  redirectBack() {
+    this.router.navigateByUrl('/users');
   }
 }

@@ -1,9 +1,12 @@
 <div class="row product-details" *ngIf="userData">
-    <h2>User Details</h2>
-    <div>
-      <p>FirstName: {{ userData.firstName }}</p>
-      <p>LastName: {{ userData.lastName }}</p>
-      <p>Age: {{ userData.age }}</p>
-      <p>Username: {{ userData.username }}</p>
-    </div>
-  </div>
+    <button class="btn-redirect" (click)="redirectBack()">
+        <img src="assets/arrow-left.svg" alt="Icon">Back</button>
+    <mat-card class="user-details-card">
+        <h2>User Details</h2>
+        <div class="img-container"><img src="{{userData.img}}" alt="Feri"></div>
+        <p>LastName: {{ userData.lastName }}</p>
+        <p>FirstName: {{ userData.firstName }}</p>
+        <p>Age: {{ userData.age }}</p>
+        <p>Username: {{ userData.username }}</p>
+    </mat-card>
+</div>

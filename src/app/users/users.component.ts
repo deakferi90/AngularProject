@@ -27,7 +27,7 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers() {
-    return this.users.getUsers().subscribe(data => {
+    return this.users.getUserList().subscribe(data => {
       this.usersList = data;
       this.filterUsers();
     })

@@ -36,23 +36,26 @@
       "lastName": "Deak",
       "firstName": "Ferenc-Jozsef",
       "email": "ferenc.deak@gmail.com",
-      "age": 25
+      "age": 33,
+      "img": "assets/Deak_Ferenc.jpg"
     },
     {
       "id": 2,
       "username": "ferike",
       "lastName": "Deak",
-      "firstName": "Ferenc",
+      "firstName": "Csongor",
       "email": "deak_ferenc_jozsef@yahoo.com",
-      "age": 30
+      "age": 6,
+      "img": "assets/gyerek.jfif"
     },
     {
       "id": 3,
-      "username": "deakferi90",
-      "lastName": "Deak",
-      "firstName": "Ilona",
-      "email": "deakferijozsi@gmail.com",
-      "age": 22
+      "username": "deakilona",
+      "lastName": "Persons",
+      "firstName": "Dianne",
+      "email": "deakilona@gmail.com",
+      "age": 22,
+      "img": "assets/Dianne_Persons.jpg"
     },
     {
       "id": 4,
@@ -60,7 +63,8 @@
       "lastName": "Kyle",
       "firstName": "Simpson",
       "email": "kylesimpson@gmail.com",
-      "age": 42
+      "age": 42,
+      "img": "assets/Kyle Simpson.jpg"
     }
   ]
 }

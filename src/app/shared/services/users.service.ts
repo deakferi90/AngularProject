@@ -12,11 +12,11 @@ export class UsersService {
 
   constructor(public http: HttpClient) { }
 
-  public getUsers() {
+  public getUserList() {
     return this.http.get<object[]>(this.getUrl());
   }
 
-  getUser(id: any) {
+  public getUser(id: any) {
     return this.http.get(this.getUrlById(id));
   }
 
@@ -28,7 +28,7 @@ export class UsersService {
     return `${this.getUrl()}/${id}`;
   }
 
-  delete(courseId: any) {
+  public delete(courseId: any) {
     return this.http.delete(this.getUrlById(courseId));
   }
 }
