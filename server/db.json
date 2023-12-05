@@ -41,30 +41,30 @@
     },
     {
       "id": 2,
-      "username": "ferike",
-      "lastName": "Deak",
+      "username": "kiss.csongi",
+      "lastName": "Kiss",
       "firstName": "Csongor",
-      "email": "deak_ferenc_jozsef@yahoo.com",
+      "email": "kiss.csongor@yahoo.com",
       "age": 6,
       "img": "assets/gyerek.jfif"
     },
     {
       "id": 3,
-      "username": "deakilona",
+      "username": "diana.persons",
       "lastName": "Persons",
       "firstName": "Dianne",
-      "email": "deakilona@gmail.com",
+      "email": "diana_persons@gmail.com",
       "age": 22,
-      "img": "assets/Dianne_Persons.jpg"
+      "img": "assets/Beau.jpg"
     },
     {
       "id": 4,
       "username": "kyle",
-      "lastName": "Kyle",
-      "firstName": "Simpson",
+      "lastName": "Simpson",
+      "firstName": "Kyle",
       "email": "kylesimpson@gmail.com",
       "age": 42,
-      "img": "assets/Kyle Simpson.jpg"
+      "img": "assets/Kyle_Simpson.jpg"
     }
   ]
 }
