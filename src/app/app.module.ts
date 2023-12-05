@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSliderModule } from '@angular/material/slider';
 import { UsersComponent } from './users/users.component';
+import { UsersDetailsComponent } from './users/users-details/users-details.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { UsersComponent } from './users/users.component';
     CoursesListComponent,
     CoursesDetailsComponent,
     UsersComponent,
+    UsersDetailsComponent
   ],
   imports: [
     BrowserModule,

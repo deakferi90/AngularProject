@@ -1,1 +1,9 @@
-<p>users-details works!</p>
+<div class="row product-details" *ngIf="userData">
+    <h2>User Details</h2>
+    <div>
+      <p>FirstName: {{ userData.firstName }}</p>
+      <p>LastName: {{ userData.lastName }}</p>
+      <p>Age: {{ userData.age }}</p>
+      <p>Username: {{ userData.username }}</p>
+    </div>
+  </div>

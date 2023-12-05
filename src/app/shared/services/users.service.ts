@@ -16,6 +16,10 @@ export class UsersService {
     return this.http.get<object[]>(this.getUrl());
   }
 
+  getUser(id: any) {
+    return this.http.get(this.getUrlById(id));
+  }
+
   public getUrl() {
     return `${BASE_URL}/${this.model}`;
   }

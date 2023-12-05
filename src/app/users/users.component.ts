@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UsersService } from '../shared/services/users.service';
 import { Router } from '@angular/router';
+//import { UsersDetailsComponent } from './users-details/users-details.component';
 
 @Component({
   selector: 'app-users',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
   filteredUsers: any = [];
+  user: any = '';
 
   @ViewChild('inputElement', { static: false })
   inputElement!: ElementRef;
@@ -19,8 +21,9 @@ export class UsersComponent implements OnInit {
     this.getUsers();
   }
 
-  viewDetails(index: number) {
-    this.router.navigate(['/users', index + 1]);
+  viewDetails(id: number, user: any) {
+    this.user = user;
+    this.router.navigate(['/users',  id + 1]);
   }
 
   getUsers() {

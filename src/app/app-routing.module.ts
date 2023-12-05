@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren:() => import('./login/login.module').then(m => m.LoginModule)
   }, //-this is lazy loading within this lazy loading module within
   {path: 'users', component: UsersComponent},
-  { path: 'users/:index', component: UsersDetailsComponent },
+  { path: 'users/:id', component: UsersDetailsComponent },
   {path: '**', redirectTo: '/home'}
 ];
 
