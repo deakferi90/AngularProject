@@ -52,6 +52,7 @@ export class UsersDetailsComponent implements OnInit {
       lastName: this.userData.lastName,
       age: this.userData.age,
       username: this.userData.username,
+      img: this.userData.img
     };
     this.show = false;
     return this.user.updateUser(this.userData.id, updatedUser).subscribe(
