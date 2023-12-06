@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../interfaces/user.interface';
+import { Observable } from 'rxjs';
 
 const BASE_URL = 'http://localhost:3000'; 
 
@@ -30,5 +32,10 @@ export class UsersService {
 
   public delete(courseId: any) {
     return this.http.delete(this.getUrlById(courseId));
+  }
+
+  updateUser(id: string, updatedUser: User): Observable<User> {
+    const url = `${this.getUrl()}/${id}`;
+    return this.http.put<User>(url, updatedUser);
   }
 }

@@ -10,8 +10,13 @@ import { UsersService } from 'src/app/shared/services/users.service';
 })
 export class UsersDetailsComponent implements OnInit {
   show: boolean = false;
-  userData: any | User
-  constructor(private route: ActivatedRoute, private router: Router ,private user: UsersService) {}
+  userData: any | User;
+  firstName: string = '';
+  lastName: string = '';
+  age: string = '';
+  username: string = '';
+  email: string = '';
+  constructor(private route: ActivatedRoute, private router: Router, private user: UsersService) { }
 
   ngOnInit() {
     let userId = this.route.snapshot.paramMap.get('id');
@@ -26,6 +31,33 @@ export class UsersDetailsComponent implements OnInit {
 
   closeCard() {
     this.show = false;
+  }
+
+  updateCard() {
+    const firstNameInput = document.getElementById('firstName') as HTMLInputElement;
+    const lastNameInput = document.getElementById('lastName') as HTMLInputElement;
+    const ageInput = document.getElementById('age') as HTMLInputElement;
+    const usernameInput = document.getElementById('username') as HTMLInputElement;
+
+    this.userData.firstName = firstNameInput?.value || this.userData.firstName;
+    this.userData.lastName = lastNameInput?.value || this.userData.lastName;
+    this.userData.age = ageInput?.value || this.userData.age;
+    this.userData.username = usernameInput?.value || this.userData.username;
+    console.log(this.userData);
+  
+    const updatedUser: User = {
+      id: this.userData.id,
+      // email: this.userData.email,
+      firstName: this.userData.firstName,
+      lastName: this.userData.lastName,
+      age: this.userData.age,
+      username: this.userData.username,
+    };
+    this.show = false;
+    return this.user.updateUser(this.userData.id, updatedUser).subscribe(
+      (response) => console.log('Update successful on the server:', response),
+      (error) => console.error('Error updating user on the server:', error)
+    );
   }
 
   redirectBack() {

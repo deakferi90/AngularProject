@@ -1,5 +1,5 @@
 .user-details-card {
-    width: 40%;
+    width: 50%;
     text-align: center;
     margin: 0 auto;
 }
@@ -54,11 +54,15 @@
     min-height: 100px;
 }
 
-.close-btn {
+.close-btn, .update-btn {
     width: 100px;
 }
 
 .btn-close-container {
+    /* display: flex;
+    justify-content: space-between; */
     display: grid;
-    justify-content: end;
+    grid-template-columns: auto auto;
+    /* justify-items: space-between; */
+    justify-content: space-between;
 }

@@ -4,10 +4,10 @@
     <mat-card class="user-details-card">
         <h2>User Details</h2>
         <div class="img-container"><img src="{{userData.img}}" alt="Feri"></div>
-        <p>LastName: {{ userData.lastName }}</p>
-        <p>FirstName: {{ userData.firstName }}</p>
-        <p>Age: {{ userData.age }}</p>
-        <p>Username: {{ userData.username }}</p>
+        <p>LastName: {{ lastName || userData.lastName }}</p>
+        <p>FirstName: {{ firstName || userData.firstName }}</p>
+        <p>Age: {{ age || userData.age }}</p>
+        <p>Username: {{ username || userData.username }}</p>
         <button mat-icon-button [matMenuTriggerFor]="menu" class="open-menu"
             aria-label="Example icon-button with a menu">
             <mat-icon>more_vert</mat-icon>
@@ -25,8 +25,31 @@
     </mat-card>
     <mat-card *ngIf="show" class="user-details-card details-edit">
         <h2>User Edit</h2>
+        <form class="example-form">
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>LastName</mat-label>
+                    <input id="lastName" matInput placeholder="Ex. Pizza" value="{{ userData.lastName }}">
+                </mat-form-field>
+            </div>
+            <mat-form-field class="example-full-width">
+                <mat-label>FirstName</mat-label>
+                <input id="firstName" matInput placeholder="Ex. Name" value="{{ userData.firstName }}">
+            </mat-form-field>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Username</mat-label>
+                    <input id="username" matInput placeholder="Ex. Name" value="{{ userData.username }}">
+                </mat-form-field>
+            </div>
+            <mat-form-field class="example-full-width">
+                <mat-label>Age</mat-label>
+                <input id="age" matInput placeholder="Ex. Name" value="{{ userData.age }}">
+            </mat-form-field>
+        </form>
         <div class="btn-close-container">
-            <button class="close-btn btn-redirect" (click)="closeCard()" >Close</button>
+            <button class="update-btn btn-redirect" (click)="updateCard()">Update</button>
+            <button class="close-btn btn-redirect" (click)="closeCard()">Close</button>
         </div>
     </mat-card>
 </div>

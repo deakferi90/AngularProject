@@ -32,21 +32,19 @@
   "users": [
     {
       "id": 1,
-      "username": "ferenc.deak",
-      "lastName": "Deak",
+      "username": "deak.feri",
       "firstName": "Ferenc-Jozsef",
-      "email": "ferenc.deak@gmail.com",
-      "age": 33,
+      "lastName": "Deak",
+      "age": "33",
+      "email": "deak.ferenc@gmail.com",
       "img": "assets/Deak_Ferenc.jpg"
     },
     {
       "id": 2,
-      "username": "kiss.csongi",
-      "lastName": "Kiss",
       "firstName": "Csongor",
-      "email": "kiss.csongor@yahoo.com",
-      "age": 6,
-      "img": "assets/gyerek.jfif"
+      "lastName": "Kiss",
+      "age": "10",
+      "username": "kiss.csongi"
     },
     {
       "id": 3,
