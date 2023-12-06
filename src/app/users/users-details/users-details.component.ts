@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/shared/interfaces/user.interface';
 import { UsersService } from 'src/app/shared/services/users.service';
 
@@ -9,6 +9,7 @@ import { UsersService } from 'src/app/shared/services/users.service';
   styleUrls: ['./users-details.component.css']
 })
 export class UsersDetailsComponent implements OnInit {
+  show: boolean = false;
   userData: any | User
   constructor(private route: ActivatedRoute, private router: Router ,private user: UsersService) {}
 
@@ -17,6 +18,14 @@ export class UsersDetailsComponent implements OnInit {
     userId && this.user.getUser(userId).subscribe((res) => {
       this.userData = res;
     })
+  }
+
+  editCard() {
+    this.show = true;
+  }
+
+  closeCard() {
+    this.show = false;
   }
 
   redirectBack() {

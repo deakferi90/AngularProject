@@ -47,8 +47,9 @@
 
 .btn:hover {
     cursor: pointer;
+    filter: brightness(70%);
 }
 
 .input-container {
-    margin: 30px 90px;
+    margin: 30px 70px;
 }

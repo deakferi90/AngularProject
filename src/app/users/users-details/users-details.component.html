@@ -8,5 +8,25 @@
         <p>FirstName: {{ userData.firstName }}</p>
         <p>Age: {{ userData.age }}</p>
         <p>Username: {{ userData.username }}</p>
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="open-menu"
+            aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="editCard()">
+                <mat-icon>edit</mat-icon>
+                <span>Edit Input</span>
+            </button>
+            <button mat-menu-item disabled>
+                <mat-icon>image</mat-icon>
+                <span>Upload Image</span>
+            </button>
+        </mat-menu>
+    </mat-card>
+    <mat-card *ngIf="show" class="user-details-card details-edit">
+        <h2>User Edit</h2>
+        <div class="btn-close-container">
+            <button class="close-btn btn-redirect" (click)="closeCard()" >Close</button>
+        </div>
     </mat-card>
 </div>

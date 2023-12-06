@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -13,9 +13,15 @@ export class CoursesService {
   courses: any = null;
   model: string = 'courses';
   constructor(private http: HttpClient) { }
+  
 
   all(): Observable<any[]> {
-    return this.http.get<any[]>(this.getUrl());
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', 'Bearer https://example.com/health-api"');
+    
+    headers = headers.append('Content-Type', 'text/html');
+    return this.http.get<any[]>(this.getUrl(), { headers });
   }
 
   find(courseId: any) {
