@@ -1,25 +1,45 @@
-// import { createAction } from '@ngrx/store';
+// import { Action } from "@ngrx/store";
 
-// export const increment = createAction('[Counter] Increment');
-// export const decrement = createAction('[Counter] Decrement');
-// export const reset = createAction('[Counter] Reset');
+// export enum ActionTypes {
+//     Increment = '[Counter Component] Increment',
+//     Decrement = '[Counter Component] Decrement',
+//     Reset = '[Counter Component] Reset',
+// }
 
-import { Action } from "@ngrx/store";
+// export class Increment implements Action {
+//     readonly type = ActionTypes.Increment;
+// }
 
-export enum ActionTypes {
-    Increment = '[Counter Component] Increment',
-    Decrement = '[Counter Component] Decrement',
-    Reset = '[Counter Component] Reset',
-}
+// export class Decrement implements Action {
+//     readonly type = ActionTypes.Decrement;
+// }
 
-export class Increment implements Action {
-    readonly type = ActionTypes.Increment;
-}
+// export class Reset implements Action {
+//     readonly type = ActionTypes.Reset;
+// }
 
-export class Decrement implements Action {
-    readonly type = ActionTypes.Decrement;
-}
+// // import { Action } from "@ngrx/store";
 
-export class Reset implements Action {
-    readonly type = ActionTypes.Reset;
-}
+// // export enum ActionTypes {
+// //     Increment = '[Counter Component] Increment',
+// //     Decrement = '[Counter Component] Decrement',
+// //     Reset = '[Counter Component] Reset',
+// // }
+
+// // export class Increment implements Action {
+// //     readonly type = ActionTypes.Increment;
+// // }
+
+// // export class Decrement implements Action {
+// //     readonly type = ActionTypes.Decrement;
+// // }
+
+// // export class Reset implements Action {
+// //     readonly type = ActionTypes.Reset;
+// // }
+
+import { createAction, props } from '@ngrx/store';
+
+export const increment = createAction('[Counter] Increment');
+export const decrement = createAction('[Counter] Decrement');
+export const reset = createAction('[Counter] Reset');

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Decrement, Increment, Reset } from './counter.actions';
+import { decrement, increment, reset } from './counter.actions';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';;
 
@@ -16,14 +16,14 @@ export class NgrxComponent {
   }
 
     increment() {
-      this.store.dispatch(new Increment());
+      this.store.dispatch(increment());
     }
 
     decrement() {
-      this.store.dispatch(new Decrement());
+      this.store.dispatch(decrement());
     }
 
     reset() {
-      this.store.dispatch(new Reset());
+      this.store.dispatch(reset());
   }
 }

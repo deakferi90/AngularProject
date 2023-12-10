@@ -1,0 +1,19 @@
+.mdc-fab {
+    width: auto;
+    padding: 20px;
+    margin: 0 20px;
+    height: 58px;
+    border-radius: 0;
+}
+
+.btn-container {
+    margin: 40% auto;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    gap: 20px;
+}
+
+.counter {
+    font-size: 48px;
+}

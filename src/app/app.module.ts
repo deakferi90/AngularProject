@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
-//import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -49,7 +49,7 @@ import { NgrxComponent } from './ngrx/ngrx.component';
     MatToolbarModule,
     MatSliderModule,
     StoreModule.forRoot({ count: counterReducer }),
-    //StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument()
   ],
   providers: [
     CoursesService,
