@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+//import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,7 +21,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSliderModule } from '@angular/material/slider';
 import { UsersComponent } from './users/users.component';
 import { UsersDetailsComponent } from './users/users-details/users-details.component';
-import { counterReducer } from './counter/counter.reducer';
+import { counterReducer } from './ngrx/counter.reducer';
+import { NgrxComponent } from './ngrx/ngrx.component';
 
 
 @NgModule({
@@ -32,9 +34,11 @@ import { counterReducer } from './counter/counter.reducer';
     CoursesListComponent,
     CoursesDetailsComponent,
     UsersComponent,
-    UsersDetailsComponent
+    UsersDetailsComponent,
+    NgrxComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -44,8 +48,8 @@ import { counterReducer } from './counter/counter.reducer';
     MatButtonModule,
     MatToolbarModule,
     MatSliderModule,
-    StoreModule.forRoot({ counter: counterReducer }),
-    StoreDevtoolsModule.instrument()
+    StoreModule.forRoot({ count: counterReducer }),
+    //StoreDevtoolsModule.instrument()
   ],
   providers: [
     CoursesService,
