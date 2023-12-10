@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { CoursesComponent } from './courses/courses.component';
 import { UsersComponent } from './users/users.component';
 import { UsersDetailsComponent } from './users/users-details/users-details.component';
+import { NgrxComponent } from './ngrx/ngrx.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   }, //-this is lazy loading within this lazy loading module within
   {path: 'users', component: UsersComponent},
   { path: 'users/:id', component: UsersDetailsComponent },
+  { path: 'ngrx', component: NgrxComponent },
   {path: '**', redirectTo: '/home'}
 ];
 

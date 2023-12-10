@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,6 +20,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSliderModule } from '@angular/material/slider';
 import { UsersComponent } from './users/users.component';
 import { UsersDetailsComponent } from './users/users-details/users-details.component';
+import { counterReducer } from './counter/counter.reducer';
 
 
 @NgModule({
@@ -40,7 +43,9 @@ import { UsersDetailsComponent } from './users/users-details/users-details.compo
     MaterialModule,
     MatButtonModule,
     MatToolbarModule,
-    MatSliderModule
+    MatSliderModule,
+    StoreModule.forRoot({ counter: counterReducer }),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [
     CoursesService,

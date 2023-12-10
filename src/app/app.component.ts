@@ -13,6 +13,7 @@ export class AppComponent {
     { path: '/courses', icon: 'view_list', title: 'Courses' },
     {path: '/users', icon: 'person', title: 'Users'},
     { path: '/**', redirectTo: "/home" },
+    { path: '/ngrx', icon: 'store', title: "Ngrx" },
   ];
   constructor(private router: Router) { }
 
