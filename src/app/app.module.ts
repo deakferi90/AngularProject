@@ -23,6 +23,7 @@ import { UsersComponent } from './users/users.component';
 import { UsersDetailsComponent } from './users/users-details/users-details.component';
 import { counterReducer } from './ngrx/counter.reducer';
 import { NgrxComponent } from './ngrx/ngrx.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -48,12 +49,13 @@ import { NgrxComponent } from './ngrx/ngrx.component';
     MatButtonModule,
     MatToolbarModule,
     MatSliderModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({ count: counterReducer }),
     StoreDevtoolsModule.instrument()
   ],
   providers: [
     CoursesService,
-    LessonsService
+    LessonsService,
   ],
   bootstrap: [AppComponent]
 })

@@ -4,10 +4,37 @@
 <div class="users-card">
     <div *ngFor="let user of filteredUsers; let i = index">
         <mat-card>
-            <span class="name">{{user.lastName}}</span>
-            <span>{{user.firstName}}</span>
+            <span class="name">{{ user.lastName }}</span>
+            <span>{{ user.firstName }}</span>
             <button (click)="viewDetails(i, user)" class="btn btn-view">View</button>
             <button class="btn btn-delete" (click)="deleteUser(user.id)">X</button>
         </mat-card>
     </div>
+</div>
+<div>
+    <mat-card class="create-card-data">
+    <form class="example-form"  [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label>LastName</mat-label>
+                <input id="lastName" formControlName="lastName" matInput placeholder="Ex. Pizza" value="">
+            </mat-form-field>
+        </div>
+        <mat-form-field class="example-full-width">
+            <mat-label>FirstName</mat-label>
+            <input id="firstName" formControlName="firstName" matInput placeholder="Ex. Name" value="">
+        </mat-form-field>
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label>Username</mat-label>
+                <input id="username" formControlName="username" matInput placeholder="Ex. Name" value="">
+            </mat-form-field>
+        </div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Age</mat-label>
+            <input id="age" formControlName="age" matInput placeholder="Ex. Name" value="">
+        </mat-form-field>
+        <button [disabled]="isFormInvalid()" mat-fab extended type="button" (click)="onSubmit()">Create User</button>
+    </form>
+    </mat-card>
 </div>

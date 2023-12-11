@@ -32,16 +32,15 @@
   "users": [
     {
       "id": 1,
-      "username": "deak.feri",
       "firstName": "Ferenc-Jozsef",
       "lastName": "Deak",
       "age": "33",
-      "email": "deak.ferenc@gmail.com",
+      "username": "deak.ferike",
       "img": "assets/Deak_Ferenc.jpg"
     },
     {
       "id": 2,
-      "firstName": "Csongor.Nr.1",
+      "firstName": "Csongor",
       "lastName": "Kiss",
       "age": "6",
       "username": "kiss.csongor",
@@ -64,6 +63,13 @@
       "email": "kylesimpson@gmail.com",
       "age": 42,
       "img": "assets/Kyle_Simpson.jpg"
+    },
+    {
+      "id": 5,
+      "firstName": "Ileana",
+      "lastName": "Deak",
+      "age": "57",
+      "username": "deak.ilona"
     }
   ]
 }

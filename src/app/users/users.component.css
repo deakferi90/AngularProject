@@ -53,3 +53,9 @@
 .input-container {
     margin: 30px 70px;
 }
+
+.create-card-data {
+    width: 250px;
+    margin: 0 auto;
+    padding: 20px;
+}
