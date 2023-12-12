@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UsersService } from '../shared/services/users.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -27,7 +27,7 @@ export class UsersComponent implements OnInit {
       lastName: '',
       username: '',
       age: '',
-      img: "assets/Kyle_Simpson.jpg",
+      img: '',
       email: ''
     });
   }
@@ -53,12 +53,12 @@ export class UsersComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Form Values:', this.checkoutForm.value);
     this.formValues = this.checkoutForm.value;
-    let posted = this.http.post(this.users.getUrl(),this.formValues );
+    let posted = this.http.post(this.users.getUrl(), this.formValues );
     let postedTwo = posted.subscribe(data => {
       this.usersList = data;
     })
+    window.location.reload();
     return postedTwo;
   }
 

@@ -35,12 +35,12 @@
       "firstName": "Ferenc-Jozsef",
       "lastName": "Deak",
       "age": "33",
-      "username": "deak.ferike",
+      "username": "deak.ferenc",
       "img": "assets/Deak_Ferenc.jpg"
     },
     {
       "id": 2,
-      "firstName": "Csongor",
+      "firstName": "Csongi",
       "lastName": "Kiss",
       "age": "6",
       "username": "kiss.csongor",
@@ -56,20 +56,21 @@
       "img": "assets/Beau.jpg"
     },
     {
-      "id": 4,
-      "username": "kyle",
-      "lastName": "Simpson",
       "firstName": "Kyle",
-      "email": "kylesimpson@gmail.com",
-      "age": 42,
-      "img": "assets/Kyle_Simpson.jpg"
+      "lastName": "Simpson",
+      "username": "kyle.simpson",
+      "age": "44",
+      "img": "assets/Kyle_Simpson.jpg",
+      "email": "",
+      "id": 4
     },
     {
       "id": 5,
-      "firstName": "Ileana",
-      "lastName": "Deak",
-      "age": "57",
-      "username": "deak.ilona"
+      "firstName": "Zsolt",
+      "lastName": "Halmagyi",
+      "age": "32",
+      "username": "zsolt.bazatu",
+      "img": "assets/Halmagyi_Zsolt.jpg"
     }
   ]
 }

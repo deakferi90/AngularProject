@@ -34,18 +34,6 @@ export class UsersService {
     return this.http.delete(this.getUrlById(courseId));
   }
 
-  //public createUser() {
-    // return this.http.post(this.getUrl(), {
-    //   "id": 5,
-    //   "username": "kyle",
-    //   "lastName": "Simpson",
-    //   "firstName": "Kyle",
-    //   "email": "kylesimpson@gmail.com",
-    //   "age": 42,
-    //   "img": ""
-    // })
-  //}
-
   updateUser(id: string, updatedUser: User): Observable<User> {
     const url = `${this.getUrl()}/${id}`;
     return this.http.put<User>(url, updatedUser);

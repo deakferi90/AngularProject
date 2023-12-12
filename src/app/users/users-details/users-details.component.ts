@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/shared/interfaces/user.interface';
 import { UsersService } from 'src/app/shared/services/users.service';
@@ -16,7 +16,8 @@ export class UsersDetailsComponent implements OnInit {
   age: string = '';
   username: string = '';
   email: string = '';
-  constructor(private route: ActivatedRoute, private router: Router, private user: UsersService) { }
+  constructor(private route: ActivatedRoute, private router: Router,
+    private user: UsersService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     let userId = this.route.snapshot.paramMap.get('id');
@@ -38,13 +39,16 @@ export class UsersDetailsComponent implements OnInit {
     const lastNameInput = document.getElementById('lastName') as HTMLInputElement;
     const ageInput = document.getElementById('age') as HTMLInputElement;
     const usernameInput = document.getElementById('username') as HTMLInputElement;
+    //const imgBox = document.getElementById('imgBox') as HTMLInputElement;
 
     this.userData.firstName = firstNameInput?.value || this.userData.firstName;
     this.userData.lastName = lastNameInput?.value || this.userData.lastName;
     this.userData.age = ageInput?.value || this.userData.age;
     this.userData.username = usernameInput?.value || this.userData.username;
-    console.log(this.userData);
-  
+    // imgBox.style.backgroundImage = "url(" + URL.createObjectURL(event.target.files[0]) + ")";
+    // this.userData.img = imgBox.style.backgroundImage || this.userData.img;
+    //console.log(this.userData);
+
     const updatedUser: User = {
       id: this.userData.id,
       // email: this.userData.email,
@@ -56,12 +60,40 @@ export class UsersDetailsComponent implements OnInit {
     };
     this.show = false;
     return this.user.updateUser(this.userData.id, updatedUser).subscribe(
-      (response) => console.log('Update successful on the server:', response),
-      (error) => console.error('Error updating user on the server:', error)
+        () => this.cdr.detectChanges()
     );
   }
 
   redirectBack() {
     this.router.navigateByUrl('/users');
+  }
+
+
+  url: any; //Angular 11, for stricter type
+  msg = "";
+
+  selectFile(event: any) {
+    const imgBox = document.getElementById('imgBox') as HTMLInputElement;
+    imgBox.style.backgroundImage = "url(" + URL.createObjectURL(event.target.files[0]) + ")";
+    console.log(imgBox);
+    if (!event.target.files[0] || event.target.files[0].length == 0) {
+      this.msg = 'You must select an image';
+      return;
+    }
+
+    let mimeType = event.target.files[0].type;
+
+    if (mimeType.match(/image\/*/) == null) {
+      this.msg = "Only images are supported";
+      return;
+    }
+
+    let reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+
+    reader.onload = (_event) => {
+      this.msg = "";
+      this.url = reader.result;
+    }
   }
 }

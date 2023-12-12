@@ -3,7 +3,7 @@
         <img src="assets/arrow-left.svg" alt="Icon">Back</button>
     <mat-card class="user-details-card">
         <h2>User Details</h2>
-        <div class="img-container"><img src="{{userData.img}}" alt="Feri"></div>
+        <div class="img-container" id="imgBox"><img src="{{userData.img}}" alt=""></div>
         <p>LastName: {{ lastName || userData.lastName }}</p>
         <p>FirstName: {{ firstName || userData.firstName }}</p>
         <p>Age: {{ age || userData.age }}</p>
@@ -17,7 +17,8 @@
                 <mat-icon>edit</mat-icon>
                 <span>Edit Input</span>
             </button>
-            <button mat-menu-item disabled>
+            <input type="file" accept="image/*" name="image" id="file" #fileInput style="display: none" (change)="selectFile($event)">
+            <button mat-menu-item (click)="fileInput.click()">
                 <mat-icon>image</mat-icon>
                 <span>Upload Image</span>
             </button>

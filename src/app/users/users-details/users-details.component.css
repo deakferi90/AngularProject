@@ -66,3 +66,7 @@
     /* justify-items: space-between; */
     justify-content: space-between;
 }
+
+#imgBox {
+    border-radius: 50%;
+}
