@@ -11,12 +11,15 @@ import { Store, select } from '@ngrx/store';
 })
 export class NgrxComponent {
   count$!: Observable<number>;
-  todoList!: string[];
+  //todoList!: string[]; - regular subscription
+  todoList$!: Observable<string[]>
   newItem!: string;
 
   constructor(private store: Store<{ count: number, todo: string[] }>) {
     this.count$ = store.pipe(select('count'));
-    store.select('todo').subscribe(todo => this.todoList = todo);
+    //store.select('todo').subscribe(todo => this.todoList = todo); - regular subscription
+    //the other difference in the template | async
+    this.todoList$ = store.pipe(select('todo'));
   }
 
     increment() {

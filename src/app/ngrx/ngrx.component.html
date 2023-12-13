@@ -14,7 +14,7 @@
             <input [(ngModel)]="newItem" placeholder="New Item">
             <button mat-mini-fab (click)="addItem()">Add Item</button>
         </div>
-        <div class="todo-component" *ngFor="let item of todoList; let i = index">
+        <div class="todo-component" *ngFor="let item of todoList$ | async; let i = index">
             {{ item }}
             <button mat-mini-fab (click)="removeItem(i)">Remove</button>
         </div>
