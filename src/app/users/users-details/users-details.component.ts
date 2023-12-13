@@ -45,9 +45,10 @@ export class UsersDetailsComponent implements OnInit {
     this.userData.lastName = lastNameInput?.value || this.userData.lastName;
     this.userData.age = ageInput?.value || this.userData.age;
     this.userData.username = usernameInput?.value || this.userData.username;
+    //this.userData.img = "assets/gyerek.jfif";
     // imgBox.style.backgroundImage = "url(" + URL.createObjectURL(event.target.files[0]) + ")";
     // this.userData.img = imgBox.style.backgroundImage || this.userData.img;
-    //console.log(this.userData);
+    console.log(this.userData);
 
     const updatedUser: User = {
       id: this.userData.id,
@@ -60,7 +61,7 @@ export class UsersDetailsComponent implements OnInit {
     };
     this.show = false;
     return this.user.updateUser(this.userData.id, updatedUser).subscribe(
-        () => this.cdr.detectChanges()
+      () => this.cdr.detectChanges()
     );
   }
 
@@ -75,25 +76,24 @@ export class UsersDetailsComponent implements OnInit {
   selectFile(event: any) {
     const imgBox = document.getElementById('imgBox') as HTMLInputElement;
     imgBox.style.backgroundImage = "url(" + URL.createObjectURL(event.target.files[0]) + ")";
-    console.log(imgBox);
-    if (!event.target.files[0] || event.target.files[0].length == 0) {
-      this.msg = 'You must select an image';
-      return;
-    }
 
-    let mimeType = event.target.files[0].type;
+    const fileName = event.target.files[0].name;
+    const imagePath = `assets/${fileName}`;
 
-    if (mimeType.match(/image\/*/) == null) {
-      this.msg = "Only images are supported";
-      return;
-    }
+    this.userData.img = imagePath;
 
-    let reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
+    // let mimeType = event.target.files[0].type;
+    // if (mimeType.match(/image\/*/) == null) {
+    //   this.msg = "Only images are supported";
+    //   return;
+    // }
 
-    reader.onload = (_event) => {
-      this.msg = "";
-      this.url = reader.result;
-    }
+    // let reader = new FileReader();
+    // reader.readAsDataURL(event.target.files[0]);
+
+    // reader.onload = (_event) => {
+    //   this.msg = "";
+    //   this.url = reader.result;
+    // }
   }
 }

@@ -62,11 +62,19 @@
     /* display: flex;
     justify-content: space-between; */
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     /* justify-items: space-between; */
     justify-content: space-between;
 }
 
 #imgBox {
     border-radius: 50%;
+}
+
+.img-text {
+    color: #fff;
+}
+
+.mat-mdc-menu-submenu-icon, .icon-img {
+    background-color: #fff;
 }

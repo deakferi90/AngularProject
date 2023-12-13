@@ -17,11 +17,6 @@
                 <mat-icon>edit</mat-icon>
                 <span>Edit Input</span>
             </button>
-            <input type="file" accept="image/*" name="image" id="file" #fileInput style="display: none" (change)="selectFile($event)">
-            <button mat-menu-item (click)="fileInput.click()">
-                <mat-icon>image</mat-icon>
-                <span>Upload Image</span>
-            </button>
         </mat-menu>
     </mat-card>
     <mat-card *ngIf="show" class="user-details-card details-edit">
@@ -50,6 +45,14 @@
         </form>
         <div class="btn-close-container">
             <button class="update-btn btn-redirect" (click)="updateCard()">Update</button>
+            <button class="upload-btn btn-redirect">
+                <input type="file" accept="image/*" name="image" id="file" #fileInput style="display: none"
+                    (change)="selectFile($event)">
+                <button mat-menu-item (click)="fileInput.click()">
+                    <mat-icon class="icon-img">image</mat-icon>
+                    <span class="img-text">Upload Image</span>
+                </button>
+            </button>
             <button class="close-btn btn-redirect" (click)="closeCard()">Close</button>
         </div>
     </mat-card>
