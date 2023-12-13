@@ -24,6 +24,7 @@ import { UsersDetailsComponent } from './users/users-details/users-details.compo
 import { counterReducer } from './ngrx/counter.reducer';
 import { NgrxComponent } from './ngrx/ngrx.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { todoReducer } from './ngrx/todo.reducer';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatToolbarModule,
     MatSliderModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ count: counterReducer }),
+    StoreModule.forRoot({ count: counterReducer, todo: todoReducer }),
     StoreDevtoolsModule.instrument()
   ],
   providers: [

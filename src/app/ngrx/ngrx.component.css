@@ -2,7 +2,7 @@
     width: auto;
     padding: 20px;
     margin: 0 20px;
-    height: 58px;
+    height: 40px;
     border-radius: 0;
 }
 
@@ -16,4 +16,20 @@
 
 .counter {
     font-size: 48px;
+}
+
+.todo-container {
+    margin-top: 60px;
+    justify-content: center;
+}
+
+.todo-title {
+    text-align: center;
+}
+
+.add-item, .todo-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
 }
