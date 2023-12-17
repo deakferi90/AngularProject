@@ -37,7 +37,7 @@
         <div>
             <label for="image">Image:</label>
             <input type="file" id="image" (change)="onFileChange($event)" accept="image/*">
-            <img [src]="checkoutForm.value.img" alt="Selected Image" *ngIf="checkoutForm.value.img">
+            <!-- <img [src]="checkoutForm.value.img" alt="Selected Image" *ngIf="checkoutForm.value.img"> -->
           </div>
         <button [disabled]="isFormInvalid()" mat-fab extended type="button" (click)="onSubmit()">Create User</button>
     </form>
