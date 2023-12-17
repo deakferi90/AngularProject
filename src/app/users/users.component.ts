@@ -27,13 +27,28 @@ export class UsersComponent implements OnInit {
       lastName: '',
       username: '',
       age: '',
-      img: '',
+      img: [null],
       email: ''
     });
   }
 
   ngOnInit() {
     this.getUsers();
+  }
+
+  onFileChange(event: any) {
+    const reader = new FileReader();
+
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.checkoutForm.patchValue({
+          img: reader.result
+        });
+      };
+    }
   }
 
   viewDetails(id: number, user: any) {
@@ -54,6 +69,7 @@ export class UsersComponent implements OnInit {
 
   onSubmit() {
     this.formValues = this.checkoutForm.value;
+    console.log(this.formValues);
     let posted = this.http.post(this.users.getUrl(), this.formValues );
     let postedTwo = posted.subscribe(data => {
       this.usersList = data;
