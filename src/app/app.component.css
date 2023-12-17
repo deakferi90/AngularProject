@@ -281,6 +281,8 @@
 .example-full-width {
   margin: 0 20px;
   height: 80px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .left-side-menu-items {

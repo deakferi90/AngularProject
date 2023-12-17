@@ -55,6 +55,7 @@
 }
 
 .create-card-data {
+    display: flow;
     width: 250px;
     margin: 0 auto;
     padding: 20px;
