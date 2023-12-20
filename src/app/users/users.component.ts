@@ -69,7 +69,6 @@ export class UsersComponent implements OnInit {
 
   onSubmit() {
     this.formValues = this.checkoutForm.value;
-    console.log(this.formValues);
     let posted = this.http.post(this.users.getUrl(), this.formValues );
     let postedTwo = posted.subscribe(data => {
       this.usersList = data;
@@ -80,7 +79,8 @@ export class UsersComponent implements OnInit {
 
   isFormInvalid(): boolean {
     return !this.checkoutForm.value.firstName ||
-    !this.checkoutForm.value.lastName  || !this.checkoutForm.value.username || !this.checkoutForm.value.age;
+    !this.checkoutForm.value.lastName  || !this.checkoutForm.value.username
+    || !this.checkoutForm.value.age || !this.checkoutForm.value.img;
   }
 
   filterUsers() {

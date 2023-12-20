@@ -15,7 +15,6 @@ export class UsersDetailsComponent implements OnInit {
   lastName: string = '';
   age: string = '';
   username: string = '';
-  email: string = '';
   constructor(private route: ActivatedRoute, private router: Router,
     private user: UsersService, private cdr: ChangeDetectorRef) { }
 
@@ -48,11 +47,10 @@ export class UsersDetailsComponent implements OnInit {
     //this.userData.img = "assets/gyerek.jfif";
     // imgBox.style.backgroundImage = "url(" + URL.createObjectURL(event.target.files[0]) + ")";
     // this.userData.img = imgBox.style.backgroundImage || this.userData.img;
-    console.log(this.userData);
+    //console.log(this.userData);
 
     const updatedUser: User = {
       id: this.userData.id,
-      // email: this.userData.email,
       firstName: this.userData.firstName,
       lastName: this.userData.lastName,
       age: this.userData.age,
@@ -70,8 +68,8 @@ export class UsersDetailsComponent implements OnInit {
   }
 
 
-  url: any; //Angular 11, for stricter type
-  msg = "";
+  // url: any;
+  // msg = "";
 
   selectFile(event: any) {
     const imgBox = document.getElementById('imgBox') as HTMLInputElement;

@@ -25,6 +25,8 @@ import { counterReducer } from './ngrx/counter.reducer';
 import { NgrxComponent } from './ngrx/ngrx.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { todoReducer } from './ngrx/todo.reducer';
+import { BooksService } from './shared/services/books.service';
+import { BooksComponent } from './books/books.component';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { todoReducer } from './ngrx/todo.reducer';
     CoursesDetailsComponent,
     UsersComponent,
     UsersDetailsComponent,
-    NgrxComponent
+    NgrxComponent,
+    BooksComponent
   ],
   imports: [
     CommonModule,
@@ -56,6 +59,7 @@ import { todoReducer } from './ngrx/todo.reducer';
   ],
   providers: [
     CoursesService,
+    BooksService,
     LessonsService,
   ],
   bootstrap: [AppComponent]

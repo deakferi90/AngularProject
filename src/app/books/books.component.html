@@ -1,0 +1,14 @@
+<div class="input-container">
+    <input #inputElement (keyup)="filterBooks()"/>
+</div>
+<div class="books-container">
+    <div *ngFor="let book of filteredBooks">
+        <div class="book-box">
+            <div>{{book.title}}</div>
+            <div class="img-box">
+                <img class="book-images" [src]="book.imageLink" />
+                <div>{{book.author}}</div>
+            </div>
+        </div>
+    </div>
+</div>

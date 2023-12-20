@@ -5,6 +5,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { UsersComponent } from './users/users.component';
 import { UsersDetailsComponent } from './users/users-details/users-details.component';
 import { NgrxComponent } from './ngrx/ngrx.component';
+import { BooksComponent } from './books/books.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'users', component: UsersComponent},
   { path: 'users/:id', component: UsersDetailsComponent },
   { path: 'ngrx', component: NgrxComponent },
+  {path: 'books', component: BooksComponent},
   {path: '**', redirectTo: '/home'}
 ];
 
