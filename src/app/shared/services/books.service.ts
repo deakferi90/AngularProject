@@ -18,5 +18,4 @@ export class BooksService {
   public getAllBooks() {
     return `${BASE_URL}/${this.model}`;
   }
-
 }

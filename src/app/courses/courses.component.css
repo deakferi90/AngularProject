@@ -42,6 +42,23 @@ li {
     justify-content: space-evenly;
 }
 
+@media screen and (max-width: 720px) {
+    .courses-containers {
+        display: grid;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .courses-containers {
+        display: grid;
+        width: 80%;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}
+
 .courses-details {
     margin-left: 20px;
 }

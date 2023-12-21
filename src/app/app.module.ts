@@ -27,6 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { todoReducer } from './ngrx/todo.reducer';
 import { BooksService } from './shared/services/books.service';
 import { BooksComponent } from './books/books.component';
+import { EffectsModule } from '@ngrx/effects';
+//import { BookEffects } from './shared/effects/books.effects';
 
 
 @NgModule({
@@ -55,11 +57,12 @@ import { BooksComponent } from './books/books.component';
     MatSliderModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ count: counterReducer, todo: todoReducer }),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    // EffectsModule.forRoot([BookEffects]),
   ],
   providers: [
-    CoursesService,
     BooksService,
+    CoursesService,
     LessonsService,
   ],
   bootstrap: [AppComponent]
