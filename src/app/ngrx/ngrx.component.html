@@ -16,7 +16,7 @@
         </div>
         <div class="todo-component" *ngFor="let item of formValues; let i = index">
             {{ item.value }}
-            <button mat-mini-fab (click)="removeItem(i)">Remove</button>
+            <button mat-mini-fab (click)="removeItem(item)">Remove</button>
          </div>
     </div>
 </div>

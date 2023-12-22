@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { addItem, removeItem } from './todo.actions';
-import { Observable } from 'rxjs';
+import { Observable, elementAt } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { TodoService } from '../shared/services/todo.service';
 import { TodoItem } from '../shared/interfaces/todo.interface';
@@ -79,16 +79,14 @@ export class NgrxComponent implements OnInit {
   }
 
   removeItem(item: any) {
-    // Assuming item has an 'id' property
-    console.log(item + 1);
-    this.formValues.splice(item, 1);
-    this.http.delete(`${this.todoService.getUrl()}/${item+1}`).subscribe(
+    this.store.dispatch(removeItem({ index: item.id }));
+    this.http.delete(`${this.todoService.getUrl()}/${item.id}`).subscribe(
       (res) => {
         console.log('Successfully posted to remote JSON file:', res);
       },
       (error) => {
         console.error('Error posting to remote JSON file:', error);
       }
-    );;
+    );
   }
 }
