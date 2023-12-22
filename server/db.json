@@ -817,5 +817,59 @@
       "title": "Memoirs of Hadrian",
       "year": 1951
     }
+  ],
+  "ngrx": [
+    {
+      "value": "",
+      "id": 1
+    },
+    {
+      "value": "",
+      "id": 2
+    },
+    {
+      "value": "",
+      "id": 3
+    },
+    {
+      "value": "",
+      "id": 4
+    },
+    {
+      "value": "",
+      "id": 5
+    },
+    {
+      "value": "",
+      "id": 6
+    },
+    {
+      "value": "",
+      "id": 7
+    },
+    {
+      "value": "",
+      "id": 8
+    },
+    {
+      "value": "",
+      "id": 9
+    },
+    {
+      "id": 1703234274825,
+      "value": "3r34wer"
+    },
+    {
+      "id": 1703234281501,
+      "value": "sdgddfg"
+    },
+    {
+      "id": 1703234284889,
+      "value": "dffdgdfg"
+    },
+    {
+      "id": 1703234302853,
+      "value": "dfdfdf"
+    }
   ]
 }

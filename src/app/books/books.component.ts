@@ -34,8 +34,4 @@ export class BooksComponent implements OnInit {
     || obj.title.toLowerCase().includes(val));
     return this.filteredBooks;
   }
-
-  // deleteItem(itemId: any) {
-  //   this.store.dispatch(removeItem({ itemId }));
-  // }
 }
