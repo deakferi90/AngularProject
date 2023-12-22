@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { addItem } from './todo.actions';
+import { addItem, removeItem } from './todo.actions';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { TodoService } from '../shared/services/todo.service';
@@ -16,90 +16,83 @@ export class NgrxComponent implements OnInit {
   todoList$: Observable<TodoItem[]>;
   newItem: string = '';
   checkoutForm: FormGroup;
-  formValues: any = {};
+  formValues: TodoItem[] = [];
 
-  constructor(private store: Store<{ todo: TodoItem[] }>, private todoService: TodoService, private formBuilder: FormBuilder, private http: HttpClient) {
+  constructor(
+    private store: Store<{ todo: TodoItem[] }>,
+    private todoService: TodoService,
+    private formBuilder: FormBuilder,
+    private http: HttpClient
+  ) {
     this.checkoutForm = this.formBuilder.group({
-      value: ''
-    })
+      value: '',
+    });
 
     this.todoList$ = store.pipe(select('todo'));
   }
 
   ngOnInit(): void {
-    this.formValues = this.checkoutForm.value;
-    console.log(this.formValues);
+    // Fetch the data from the remote JSON file or server
+    this.getListItems();
   }
 
-  // addItem() {
-  //   // Generate a unique id for the new item
-  //   const newId = new Date().getTime();
-
-  //   // Dispatch the addItem action with id and item
-  //   this.store.dispatch(addItem({ id: newId, value: this.newItem }));
-  //   let posted = this.http.post(this.todoService.getUrl(), this.formValues );
-
-  //   // Get the updated todo list from the store
-  //   posted.subscribe(todoList => {
-  //     // Make an HTTP request to post the updated todo list to the server
-  //     this.todoService.postTodoItem(todoList).subscribe(
-  //       response => {
-  //         console.log('Successfully posted to remote JSON file:', response);
-  //         //this.newItem = response;
-  //       },
-  //       error => {
-  //         console.error('Error posting to remote JSON file:', error);
-  //       }
-  //     );
-  //   });
-
-  //   // Clear the input field
-  //   this.newItem = '';
-  // }
+  getListItems() {
+    this.http.get<any[]>(this.todoService.getUrl()).subscribe(
+      (data) => {
+        // Flatten the nested arrays and assign directly to formValues
+        this.formValues = data.flat();
+      },
+      (error) => {
+        console.error('Error fetching data:', error);
+      }
+    );
+  }
 
   addItem() {
-    // Generate a unique id for the new item
-    const newId = new Date().getTime();
+    let id: number = 0;
+    const newId = id++;
+    //const newId = new Date().getTime();
 
     // Dispatch the addItem action with id and item
     this.store.dispatch(addItem({ id: newId, value: this.newItem }));
-    //let posted = this.http.post(this.todoService.getUrl(), this.formValues );
 
-    this.formValues = {
+    // Prepare the data in the desired format
+    const postData = {
       id: newId,
       value: this.newItem
-    }
+    };
 
-    let posted = this.http.post(this.todoService.getUrl(), this.formValues);
+    // Add the new item to the flat array
+    this.formValues.push({ id: newId, value: this.newItem });
 
-    posted.subscribe(
+    // Update the remote JSON file with the new data
+    this.http.post(this.todoService.getUrl(), postData).subscribe(
       (res) => {
         console.log('Successfully posted to remote JSON file:', res);
       },
-      error => {
+      (error) => {
         console.error('Error posting to remote JSON file:', error);
       }
     );
 
-    // Get the updated todo list from the store
-    // posted.subscribe(todoList => {
-    //   // Make an HTTP request to post the updated todo list to the server
-    //   this.todoService.postTodoItem(todoList).subscribe(
-    //     response => {
-    //       console.log('Successfully posted to remote JSON file:', response);
-    //       //this.newItem = response;
-    //     },
-    //     error => {
-    //       console.error('Error posting to remote JSON file:', error);
-    //     }
-    //   );
-    // });
-
-    // Clear the input field
-    this.newItem = '';
+    this.newItem = ''; // Clear the input field
   }
 
   removeItem(item: any) {
-    console.log(item);
+    this.store.dispatch(removeItem({ index: item }));
+    const indexToRemove = this.formValues.findIndex((element) => element.id === item);
+
+    if(indexToRemove !== -1) {
+      this.formValues.splice(indexToRemove, 1);
+    }
+
+    this.http.delete(`${this.todoService.getUrl()}/${item}`).subscribe(
+      res => {
+        console.log('Successfully deleted from remote JSON file:', res);
+      },
+      err => {
+        console.log('Error deleting from remote JSON file:', err);
+      }
+    )
   }
 }
