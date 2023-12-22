@@ -79,20 +79,16 @@ export class NgrxComponent implements OnInit {
   }
 
   removeItem(item: any) {
-    this.store.dispatch(removeItem({ index: item }));
-    const indexToRemove = this.formValues.findIndex((element) => element.id === item);
-
-    if(indexToRemove !== -1) {
-      this.formValues.splice(indexToRemove, 1);
-    }
-
-    this.http.delete(`${this.todoService.getUrl()}/${item}`).subscribe(
-      res => {
-        console.log('Successfully deleted from remote JSON file:', res);
+    // Assuming item has an 'id' property
+    console.log(item + 1);
+    this.formValues.splice(item, 1);
+    this.http.delete(`${this.todoService.getUrl()}/${item+1}`).subscribe(
+      (res) => {
+        console.log('Successfully posted to remote JSON file:', res);
       },
-      err => {
-        console.log('Error deleting from remote JSON file:', err);
+      (error) => {
+        console.error('Error posting to remote JSON file:', error);
       }
-    )
+    );;
   }
 }
