@@ -11,5 +11,5 @@ export const initialState : string[] = [];
 export const todoReducer = createReducer(
     initialState,
     on(todoActions.addItem, (state, { value }) => [...state, value]),
-    on(todoActions.removeItem, (state, { index }) => state.filter((_, i) => i !== index))
+    on(todoActions.removeItem, (state, { id }) => state.filter((_, i) => i !== id))
 );

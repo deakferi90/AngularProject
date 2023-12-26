@@ -51,24 +51,21 @@ export class NgrxComponent implements OnInit {
   addItem() {
     let id: number = 0;
     const newId = id++;
-    //const newId = new Date().getTime();
 
-    // Dispatch the addItem action with id and item
-    this.store.dispatch(addItem({ id: newId, value: this.newItem }));
-
-    // Prepare the data in the desired format
     const postData = {
       id: newId,
       value: this.newItem
     };
 
-    // Add the new item to the flat array
     this.formValues.push({ id: newId, value: this.newItem });
+    this.store.dispatch(addItem({ id: newId, value: this.newItem }));
 
     // Update the remote JSON file with the new data
     this.http.post(this.todoService.getUrl(), postData).subscribe(
       (res) => {
+        // this.store.dispatch(addItem({ id: newId, value: this.newItem }));
         console.log('Successfully posted to remote JSON file:', res);
+        window.location.reload();
       },
       (error) => {
         console.error('Error posting to remote JSON file:', error);
@@ -78,14 +75,17 @@ export class NgrxComponent implements OnInit {
     this.newItem = ''; // Clear the input field
   }
 
-  removeItem(item: any) {
-    this.store.dispatch(removeItem({ index: item.id }));
+  removeItem(item: TodoItem) {
+    
+    this.formValues = this.formValues.filter(arrOfItems => item.id !== arrOfItems.id);
+    console.log(`${this.todoService.getUrl()}/${item}`);
+    this.store.dispatch(removeItem({ id: item}));
     this.http.delete(`${this.todoService.getUrl()}/${item.id}`).subscribe(
       (res) => {
-        console.log('Successfully posted to remote JSON file:', res);
+        console.log('Successfully deleted to remote JSON file:', res);
       },
       (error) => {
-        console.error('Error posting to remote JSON file:', error);
+        console.error('Error deleting to remote JSON file:', error);
       }
     );
   }
