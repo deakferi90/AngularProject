@@ -19,8 +19,12 @@ export class TodoService {
 
   constructor(private http: HttpClient) {}
 
-  incrementId(): number {
-    return ++this.id;
+  getId(): number {
+    return this.id;
+  }
+
+  setId(newId: number): void {
+    this.id = newId;
   }
 
   getCurrentId(): number {

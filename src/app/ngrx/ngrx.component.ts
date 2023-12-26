@@ -6,6 +6,7 @@ import { TodoService } from '../shared/services/todo.service';
 import { TodoItem } from '../shared/interfaces/todo.interface';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-ngrx',
@@ -17,12 +18,13 @@ export class NgrxComponent implements OnInit {
   newItem: string = '';
   checkoutForm: FormGroup;
   formValues: TodoItem[] = [];
+  private id: number = 1;
 
   constructor(
     private store: Store<{ todo: TodoItem[] }>,
     private todoService: TodoService,
     private formBuilder: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
   ) {
     this.checkoutForm = this.formBuilder.group({
       value: '',
@@ -34,6 +36,7 @@ export class NgrxComponent implements OnInit {
   ngOnInit(): void {
     // Fetch the data from the remote JSON file or server
     this.getListItems();
+    this.id = this.todoService.getId();
   }
 
   getListItems() {
@@ -49,34 +52,53 @@ export class NgrxComponent implements OnInit {
   }
 
   addItem() {
-    let id: number = 0;
-    const newId = id++;
+    // Check if the current ID already exists in the store
+    const idExists = this.formValues.some(item => item.id === this.id);
 
+    if (this.id === 0) {
+      //console.error('Error: Posting with ID equal to 0 is not allowed.');
+      this.id++
+      return;
+    }
+  
+    // If the current ID exists, find the next available ID
+    if (idExists) {
+      let newId = this.id;
+      do {
+        newId += 1;
+      } while (this.formValues.some(item => item.id === newId));
+    
+      this.id = newId;
+      this.todoService.setId(this.id);
+    }
+  
     const postData = {
-      id: newId,
+      id: this.id,
       value: this.newItem
     };
-
-    this.formValues.push({ id: newId, value: this.newItem });
-    this.store.dispatch(addItem({ id: newId, value: this.newItem }));
+  
+    this.formValues.push({ id: this.id, value: this.newItem });
     this.http.post(this.todoService.getUrl(), postData).subscribe(
       (res) => {
         console.log('Successfully posted to remote JSON file:', res);
-        window.location.reload();
+        this.store.dispatch(addItem({ id: this.id, value: this.newItem }));
       },
       (error) => {
         console.error('Error posting to remote JSON file:', error);
+  
+        // If there was an error posting, increment the ID and try again
+        this.id += 1;
+        this.todoService.setId(this.id);
+        this.addItem(); // Recursively call addItem with the updated ID
       }
     );
-
+  
     this.newItem = ''; // Clear the input field
   }
 
   removeItem(item: TodoItem) {
-    
     this.formValues = this.formValues.filter(arrOfItems => item.id !== arrOfItems.id);
-    console.log(`${this.todoService.getUrl()}/${item}`);
-    this.store.dispatch(removeItem({ id: item}));
+    this.store.dispatch(removeItem({ id: item.id}));
     this.http.delete(`${this.todoService.getUrl()}/${item.id}`).subscribe(
       (res) => {
         console.log('Successfully deleted to remote JSON file:', res);

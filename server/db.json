@@ -812,16 +812,16 @@
   ],
   "ngrx": [
     {
+      "id": 4,
+      "value": "rewwer"
+    },
+    {
+      "id": 8,
+      "value": "erwer"
+    },
+    {
       "id": 1,
-      "value": "1"
-    },
-    {
-      "id": 2,
-      "value": "2"
-    },
-    {
-      "id": 3,
-      "value": "3"
+      "value": "werewr"
     }
   ]
 }
