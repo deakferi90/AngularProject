@@ -59,11 +59,8 @@ export class NgrxComponent implements OnInit {
 
     this.formValues.push({ id: newId, value: this.newItem });
     this.store.dispatch(addItem({ id: newId, value: this.newItem }));
-
-    // Update the remote JSON file with the new data
     this.http.post(this.todoService.getUrl(), postData).subscribe(
       (res) => {
-        // this.store.dispatch(addItem({ id: newId, value: this.newItem }));
         console.log('Successfully posted to remote JSON file:', res);
         window.location.reload();
       },
