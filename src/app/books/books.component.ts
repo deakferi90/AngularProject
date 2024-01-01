@@ -15,7 +15,7 @@ export class BooksComponent implements OnInit {
   filteredBooks!: Book[];
   @ViewChild('inputElement', { static: false })
   inputElement!: ElementRef;
-  constructor(private service: BooksService, private store: Store, private cdr: ChangeDetectorRef) { }
+  constructor(private service: BooksService) { }
 
   ngOnInit(): void {
     this.getBooks();
