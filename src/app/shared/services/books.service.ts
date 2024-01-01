@@ -18,4 +18,8 @@ export class BooksService {
   public getAllBooks() {
     return `${BASE_URL}/${this.model}`;
   }
+
+  public deleteBook(id: number) {
+    return this.http.delete(`${this.getAllBooks()}/${id}`)
+  }
 }
