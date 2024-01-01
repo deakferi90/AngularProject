@@ -56,7 +56,6 @@ export class NgrxComponent implements OnInit {
     const idExists = this.formValues.some(item => item.id === this.id);
 
     if (this.id === 0) {
-      //console.error('Error: Posting with ID equal to 0 is not allowed.');
       this.id++
       return;
     }

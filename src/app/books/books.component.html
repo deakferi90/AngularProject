@@ -8,8 +8,9 @@
             <div class="img-box">
                 <img class="book-images" [src]="book.imageLink" />
                 <div>{{book.author}}</div>
+                <div>{{book.id}}</div>
             </div>
-            <button class="delete-item">Delete</button>
+            <button class="delete-item" (click)="deleteBook(book.id)">Delete</button>
         </div>
     </div>
 </div>
