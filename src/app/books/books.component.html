@@ -3,6 +3,7 @@
 </div>
 <div class="books-container">
     <div *ngFor="let book of filteredBooks">
+        <!-- <div *ngFor="let book of filteredBooks$ | async"> async sub-->
         <div class="book-box">
             <h4 class="book-title">{{book.title}}</h4>
             <div class="img-box">
@@ -10,7 +11,7 @@
                 <div>{{book.author}}</div>
                 <div>{{book.id}}</div>
             </div>
-            <button class="delete-item" (click)="deleteBook(book.id)">Delete</button>
+            <button type="button" class="delete-item" (click)="deleteBook(book.id)">Delete</button>
         </div>
     </div>
 </div>
