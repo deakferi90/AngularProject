@@ -106,6 +106,17 @@
       "year": 1835
     },
     {
+      "id": 11,
+      "author": "Giovanni Boccaccio",
+      "country": "Italy",
+      "imageLink": "assets/images/the-decameron.jpg",
+      "language": "Italian",
+      "link": "https://en.wikipedia.org/wiki/The_Decameron\n",
+      "pages": 1024,
+      "title": "The Decameron",
+      "year": 1351
+    },
+    {
       "id": 13,
       "author": "Emily Brontë",
       "country": "United Kingdom",
@@ -115,6 +126,17 @@
       "pages": 342,
       "title": "Wuthering Heights",
       "year": 1847
+    },
+    {
+      "id": 14,
+      "author": "Albert Camus",
+      "country": "Algeria, French Empire",
+      "imageLink": "assets/images/l-etranger.jpg",
+      "language": "French",
+      "link": "https://en.wikipedia.org/wiki/The_Stranger_(novel)\n",
+      "pages": 185,
+      "title": "The Stranger",
+      "year": 1942
     },
     {
       "id": 15,
@@ -161,6 +183,17 @@
       "year": 1450
     },
     {
+      "id": 19,
+      "author": "Anton Chekhov",
+      "country": "Russia",
+      "imageLink": "assets/images/stories-of-anton-chekhov.jpg",
+      "language": "Russian",
+      "link": "https://en.wikipedia.org/wiki/List_of_short_stories_by_Anton_Chekhov\n",
+      "pages": 194,
+      "title": "Stories",
+      "year": 1886
+    },
+    {
       "id": 20,
       "author": "Joseph Conrad",
       "country": "United Kingdom",
@@ -194,6 +227,17 @@
       "year": 1796
     },
     {
+      "id": 23,
+      "author": "Alfred Döblin",
+      "country": "Germany",
+      "imageLink": "assets/images/berlin-alexanderplatz.jpg",
+      "language": "German",
+      "link": "https://en.wikipedia.org/wiki/Berlin_Alexanderplatz\n",
+      "pages": 600,
+      "title": "Berlin Alexanderplatz",
+      "year": 1929
+    },
+    {
       "id": 24,
       "author": "Fyodor Dostoevsky",
       "country": "Russia",
@@ -225,6 +269,17 @@
       "pages": 768,
       "title": "The Possessed",
       "year": 1872
+    },
+    {
+      "id": 27,
+      "author": "Fyodor Dostoevsky",
+      "country": "Russia",
+      "imageLink": "assets/images/the-brothers-karamazov.jpg",
+      "language": "Russian",
+      "link": "https://en.wikipedia.org/wiki/The_Brothers_Karamazov\n",
+      "pages": 824,
+      "title": "The Brothers Karamazov",
+      "year": 1880
     },
     {
       "id": 28,
@@ -324,6 +379,17 @@
       "pages": 417,
       "title": "One Hundred Years of Solitude",
       "year": 1967
+    },
+    {
+      "id": 37,
+      "author": "Gabriel García Márquez",
+      "country": "Colombia",
+      "imageLink": "assets/images/love-in-the-time-of-cholera.jpg",
+      "language": "Spanish",
+      "link": "https://en.wikipedia.org/wiki/Love_in_the_Time_of_Cholera\n",
+      "pages": 368,
+      "title": "Love in the Time of Cholera",
+      "year": 1985
     },
     {
       "id": 38,
@@ -555,6 +621,28 @@
       "pages": 160,
       "title": "Pippi Longstocking",
       "year": 1945
+    },
+    {
+      "id": 59,
+      "author": "Leo Tolstoy",
+      "country": "Russia",
+      "imageLink": "assets/images/the-death-of-ivan-ilyich.jpg",
+      "language": "Russian",
+      "link": "https://en.wikipedia.org/wiki/The_Death_of_Ivan_Ilyich\n",
+      "pages": 92,
+      "title": "The Death of Ivan Ilyich",
+      "year": 1886
+    },
+    {
+      "id": 60,
+      "author": "Leo Tolstoy",
+      "country": "Russia",
+      "imageLink": "assets/images/the-death-of-ivan-ilyich.jpg",
+      "language": "Russian",
+      "link": "https://en.wikipedia.org/wiki/The_Death_of_Ivan_Ilyich\n",
+      "pages": 92,
+      "title": "The Death of Ivan Ilyich and Ivanka",
+      "year": 1886
     },
     {
       "id": 61,

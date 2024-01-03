@@ -8,8 +8,10 @@ import { Observable, map } from 'rxjs'; //-used if async pipe subscription is be
   styleUrl: './books.component.css'
 })
 export class BooksComponent implements OnInit {
-  books!: Book[] | any[]; //-  books$!: Observable<Book[] | any[]> is when async pipe is being used
-  filteredBooks!: Book[]; //- filteredBooks$!: Observable<Book[]> is when async pipe is being used
+  //books!: Book[] | any[]; 
+  books$!: Observable<Book[] | any[]> //is when async pipe is being used
+  //filteredBooks!: Book[]; 
+  filteredBooks$!: Observable<Book[]> //is when async pipe is being used
   @ViewChild('inputElement', { static: false })
   inputElement!: ElementRef;
   constructor(private service: BooksService) { }
@@ -19,24 +21,32 @@ export class BooksComponent implements OnInit {
   }
 
   getBooks(): void {
-    this.service.getBooks().subscribe(data => {
-      this.books = data;
-      this.filteredBooks = this.books;
-    })
-    // this.books$ = this.service.getBooks();
-    // this.filteredBooks$ = this.books$;
+    // this.service.getBooks().subscribe(data => {
+    //   this.books = data;
+    //   this.filteredBooks = this.books;
+    // })
+    this.books$ = this.service.getBooks();
+    this.filteredBooks$ = this.books$;
   }
 
   filterBooks() {
     const val = this.inputElement.nativeElement.value.toLowerCase();
-    this.filteredBooks = this.books.filter((obj) => obj.author.toLowerCase().includes(val)
-      || obj.title.toLowerCase().includes(val));
-    return this.filteredBooks;
-    //this.filteredBooks$ = this.books$.pipe(map(books => books.filter((obj) => obj.author.toLowerCase().includes(val) || obj.title.toLowerCase().includes(val))));
+    // this.filteredBooks = this.books.filter((obj) => obj.author.toLowerCase().includes(val) || obj.title.toLowerCase().includes(val));
+    // return this.filteredBooks;
+    this.filteredBooks$ = this.books$.pipe(map(books => books.filter((obj) => obj.author.toLowerCase().includes(val) || obj.title.toLowerCase().includes(val))));
   }
 
-  deleteBook(id: number) {
-    this.service.deleteBook(id).subscribe(() => this.getBooks());
+  deleteBook(event: Event, id: number) {
+    event.preventDefault();
+    return this.service.deleteBook(id).subscribe(() => this.getBooks());
+  }
+
+  shortenTitle(title: string | string, maxLenght: number = 32) {
+    if (title.length > maxLenght)
+      return title.substring(0, maxLenght - 3) + '...';
+    else {
+      return title;
+    }
   }
 
   // deleteBook(event: Event, id: number) {

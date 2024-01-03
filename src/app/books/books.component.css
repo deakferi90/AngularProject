@@ -40,6 +40,33 @@
 .book-title {
     margin: 0;
     text-align: center;
+    position: relative;
+}
+
+.book-title::after {
+    content: attr(title);
+    position: absolute;
+    top: -200%;
+    left: 100%;
+    transform: translate(-50%, 20%);
+    padding: 8px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    z-index: 1;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.book-title:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+.book-title:hover {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
