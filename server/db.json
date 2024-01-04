@@ -74,7 +74,7 @@
   "books": [
     {
       "id": 1,
-      "author": "Chinua Achebe",
+      "author": "Hanoracess",
       "country": "Nigeria",
       "imageLink": "assets/images/things-fall-apart.jpg",
       "language": "English",
@@ -128,17 +128,6 @@
       "year": 1847
     },
     {
-      "id": 14,
-      "author": "Albert Camus",
-      "country": "Algeria, French Empire",
-      "imageLink": "assets/images/l-etranger.jpg",
-      "language": "French",
-      "link": "https://en.wikipedia.org/wiki/The_Stranger_(novel)\n",
-      "pages": 185,
-      "title": "The Stranger",
-      "year": 1942
-    },
-    {
       "id": 15,
       "author": "Paul Celan",
       "country": "Romania, France",
@@ -151,7 +140,7 @@
     },
     {
       "id": 16,
-      "author": "Louis-Ferdinand Céline",
+      "author": "Louis-Ferdinand Célineee",
       "country": "France",
       "imageLink": "assets/images/voyage-au-bout-de-la-nuit.jpg",
       "language": "French",

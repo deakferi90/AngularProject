@@ -1,6 +1,7 @@
 import {  Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { BooksService } from '../shared/services/books.service';
 import { Book } from '../shared/interfaces/books.interface';
+import { HttpClient } from '@angular/common/http';
 //import { Observable, map } from 'rxjs'; -used if async pipe subscription is being implemented
 @Component({
   selector: 'app-books',
@@ -18,7 +19,7 @@ export class BooksComponent implements AfterViewInit {
   selectedBook: any;
   selectedBookIndex: number | null = null;
   bookEdit: boolean = false;
-  constructor(private service: BooksService) { }
+  constructor(private service: BooksService, private http: HttpClient) { }
 
   scrollToTop() {
     this.bookEdit = false;
@@ -29,9 +30,18 @@ export class BooksComponent implements AfterViewInit {
   }
 
   saveChanges() {
-    // Implement logic to save changes to the selected book
-    console.log('Changes saved for book:', this.selectedBook);
-    this.selectedBook = null; // Clear selectedBook after saving changes
+    if (this.selectedBook) {
+      this.service.updateBook(this.selectedBook).subscribe(() => {
+        console.log('Changes saved for book:', this.selectedBook);
+        this.selectedBook = null;
+        this.getBooks(); // Refresh the book list after the update
+        this.scrollPage.nativeElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      });
+    }
   }
 
   getBooks(): void {
@@ -50,10 +60,10 @@ export class BooksComponent implements AfterViewInit {
     //this.filteredBooks$ = this.books$.pipe(map(books => books.filter((obj) => obj.author.toLowerCase().includes(val) || obj.title.toLowerCase().includes(val))));
   }
 
-  editBook(el: any) {
-    console.log('edited the book:', el);
+  editBook(selectedBook: Book) {
+    // console.log('edited the book:', selectedBook);
     this.bookEdit = true;
-    this.selectedBookIndex = el;
+    this.selectedBook = selectedBook;
   
     // Wait for a short delay to ensure the form is fully rendered so the scrolling works
     setTimeout(() => {
@@ -76,12 +86,12 @@ export class BooksComponent implements AfterViewInit {
     this.service.deleteBook(id).subscribe(() => this.getBooks());
   }
 
-  shortenTitle(title: string | string, maxLenght: number = 32) {
-    // console.log(title.length);
-    // if (title.length > maxLenght) {
-    //   return title.substring(0, maxLenght - 3) + '...';
-    // } else {
-     return title;
-    //}
-  }
+  // shortenTitle(title: string | string, maxLenght: number = 32) {
+  //   console.log(title.length);
+  //   if (title.length > maxLenght) {
+  //     return title.substring(0, maxLenght - 3) + '...'; should implement this
+  //   } else {
+  //    return title;
+  //   }
+  // }
 }
