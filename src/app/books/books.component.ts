@@ -14,7 +14,7 @@ export class BooksComponent implements AfterViewInit {
   //filteredBooks$!: Observable<Book[]> //is when async pipe is being used
   @ViewChild('inputElement', { static: false }) inputElement!: ElementRef;
   @ViewChild('scrollPage') scrollPage!: ElementRef;
-  @ViewChild('editForm') editForm!: ElementRef;
+  // @ViewChild('editForm') editForm!: ElementRef;
   selectedBook: any;
   bookEdit: boolean = false;
   constructor(private service: BooksService) { }
@@ -42,13 +42,6 @@ export class BooksComponent implements AfterViewInit {
     return this.filteredBooks;
     //this.filteredBooks$ = this.books$.pipe(map(books => books.filter((obj) => obj.author.toLowerCase().includes(val) || obj.title.toLowerCase().includes(val))));
   }
-
-  // editBook(id: number) {
-  //   let body = document.querySelector('.form-item');
-  //   body?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-  //   console.log('edited the book:', id);
-  //   this.bookEdit = true;
-  // }
 
   editBook(id: number) {
     console.log('edited the book:', id);
