@@ -74,7 +74,7 @@
   "books": [
     {
       "id": 1,
-      "author": "Hanoracess",
+      "author": "Chinua Achebe",
       "country": "Nigeria",
       "imageLink": "assets/images/things-fall-apart.jpg",
       "language": "English",
@@ -553,7 +553,7 @@
       "language": "Russian",
       "link": "https://en.wikipedia.org/wiki/The_Death_of_Ivan_Ilyich\n",
       "pages": 92,
-      "title": "The Death of Ivan Ilyich",
+      "title": "The Death of Ivan Ilyich and Ivanka",
       "year": 1886
     },
     {

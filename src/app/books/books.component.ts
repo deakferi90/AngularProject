@@ -86,12 +86,11 @@ export class BooksComponent implements AfterViewInit {
     this.service.deleteBook(id).subscribe(() => this.getBooks());
   }
 
-  // shortenTitle(title: string | string, maxLenght: number = 32) {
-  //   console.log(title.length);
-  //   if (title.length > maxLenght) {
-  //     return title.substring(0, maxLenght - 3) + '...'; should implement this
-  //   } else {
-  //    return title;
-  //   }
-  // }
+  shortenTitle(title: string | string, maxLenght: number = 32) {
+    if (title.length > maxLenght) {
+      return title.substring(0, maxLenght - 3) + '...'; //should implement this
+    } else {
+     return title;
+    }
+  }
 }
