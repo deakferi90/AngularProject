@@ -1,7 +1,7 @@
-import { Renderer2, Component, ElementRef, OnInit, ViewChild, AfterViewInit, inject } from '@angular/core';
+import {  Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { BooksService } from '../shared/services/books.service';
 import { Book } from '../shared/interfaces/books.interface';
-import { Observable, map } from 'rxjs'; //-used if async pipe subscription is being implemented
+//import { Observable, map } from 'rxjs'; -used if async pipe subscription is being implemented
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -16,6 +16,7 @@ export class BooksComponent implements AfterViewInit {
   @ViewChild('scrollPage') scrollPage!: ElementRef;
   // @ViewChild('editForm') editForm!: ElementRef;
   selectedBook: any;
+  selectedBookIndex: number | null = null;
   bookEdit: boolean = false;
   constructor(private service: BooksService) { }
 
@@ -25,6 +26,12 @@ export class BooksComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.getBooks();
+  }
+
+  saveChanges() {
+    // Implement logic to save changes to the selected book
+    console.log('Changes saved for book:', this.selectedBook);
+    this.selectedBook = null; // Clear selectedBook after saving changes
   }
 
   getBooks(): void {
@@ -43,18 +50,20 @@ export class BooksComponent implements AfterViewInit {
     //this.filteredBooks$ = this.books$.pipe(map(books => books.filter((obj) => obj.author.toLowerCase().includes(val) || obj.title.toLowerCase().includes(val))));
   }
 
-  editBook(id: number) {
-    console.log('edited the book:', id);
+  editBook(index: number) {
+    console.log('edited the book:', index);
     this.bookEdit = true;
+    this.selectedBookIndex = index;
   
     // Wait for a short delay to ensure the form is fully rendered so the scrolling works
     setTimeout(() => {
-      let body = document.querySelector('.form-item');
-      body?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-    }, 100); // Adjust the delay as needed
+      let form = document.querySelector('.form-item');
+      form?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+    }, 0); // Adjust the delay as needed
   }
 
   cancel() {
+    this.selectedBookIndex = null;
     this.scrollPage.nativeElement.scrollIntoView({
       behavior: "smooth",
       block: "start",
