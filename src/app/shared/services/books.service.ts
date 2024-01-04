@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const BASE_URL = 'http://localhost:3000'; 
+const BASE_URL = 'http://localhost:3000';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +21,9 @@ export class BooksService {
 
   public deleteBook(id: number) {
     return this.http.delete(`${this.getAllBooks()}/${id}`)
+  }
+
+  public editBook(book: object[], id: number) {
+    return this.http.put(`${this.getAllBooks()}/${id}`, book)
   }
 }

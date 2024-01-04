@@ -1,9 +1,10 @@
-<div class="input-container">
-    <input #inputElement (keyup)="filterBooks()"/>
+<div #scrollPage class="parent-books">
+<div class="input-container" #scroll>
+    <input #inputElement (keyup)="filterBooks()" />
 </div>
 <div class="books-container">
-    <!-- <div *ngFor="let book of filteredBooks"> -->
-        <div *ngFor="let book of filteredBooks$ | async">
+    <div *ngFor="let book of filteredBooks">
+    <!-- <div *ngFor="let book of filteredBooks$ | async"> -->
         <div class="book-box">
             <h4 class="book-title" title="{{book.title}}">{{shortenTitle(book.title)}}</h4>
             <div class="img-box">
@@ -11,7 +12,27 @@
                 <div>{{book.author}}</div>
                 <div>{{book.id}}</div>
             </div>
-            <button type="button" class="delete-item" (click)="deleteBook($event, book.id)">Delete</button>
+            <div class="card-btn">
+                <button type="button" class="edit-item" (click)="editBook(book.id)">Edit</button>
+                <button type="button" class="delete-item" (click)="deleteBook($event, book.id)">Delete</button>
+            </div>
         </div>
     </div>
+</div>
+<form #editForm="ngForm" *ngIf="bookEdit" class="form-item">
+    <mat-card class="edit-book-card">
+        <mat-form-field>
+        <input matInput placeholder="Title"
+          type="text" name="title" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Author"
+          type="text" name="author" required>
+      </mat-form-field>
+      <mat-card-actions>
+        <button type="submit" mat-button color="primary">Submit</button>
+        <button type="button" class="scroll-top" (click)="cancel()" mat-button>Cancel</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
 </div>

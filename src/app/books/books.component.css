@@ -1,3 +1,7 @@
+.parent-books {
+    padding-top: 20px;
+}
+
 .book-box {
     height: 250px;
     width: 250px;
@@ -33,7 +37,7 @@
 }
 
 .input-container {
-    margin: 20px 0;
+    margin-bottom: 20px;
     padding-left: 30px;
 }
 
@@ -76,14 +80,39 @@
     }
 }
 
-.delete-item {
-    background-color: red;
+.card-btn button {
     border: none;
     border-radius: 10px;
     color: #fff;
 }
 
-.delete-item:hover {
+.card-btn .delete-item {
+    background-color: red;
+    margin-left: 2.5px;
+}
+
+.card-btn .edit-item {
+    background-color: orange;
+    margin-right: 2.5px;
+}
+
+.delete-item:hover, .edit-item:hover {
     cursor: pointer;
-    background: lightcoral;
+}
+
+.book-title[title] {
+    position: relative;
+}
+
+
+.form-item {
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+.edit-book-card {
+    padding: 20px;
+    margin: 20px;
 }

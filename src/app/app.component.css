@@ -340,8 +340,14 @@ svg#clouds {
   display: none;
 }
 
+.container-outlet {
+  overflow-x: hidden;
+  height: 100%;
+}
+
 @media screen and (max-width: 550px) {
   .pic-container {
     width: 25%;
   } 
 }
+
