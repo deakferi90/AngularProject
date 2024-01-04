@@ -50,10 +50,10 @@ export class BooksComponent implements AfterViewInit {
     //this.filteredBooks$ = this.books$.pipe(map(books => books.filter((obj) => obj.author.toLowerCase().includes(val) || obj.title.toLowerCase().includes(val))));
   }
 
-  editBook(index: number) {
-    console.log('edited the book:', index);
+  editBook(el: any) {
+    console.log('edited the book:', el);
     this.bookEdit = true;
-    this.selectedBookIndex = index;
+    this.selectedBookIndex = el;
   
     // Wait for a short delay to ensure the form is fully rendered so the scrolling works
     setTimeout(() => {
@@ -63,7 +63,6 @@ export class BooksComponent implements AfterViewInit {
   }
 
   cancel() {
-    this.selectedBookIndex = null;
     this.scrollPage.nativeElement.scrollIntoView({
       behavior: "smooth",
       block: "start",
@@ -78,10 +77,11 @@ export class BooksComponent implements AfterViewInit {
   }
 
   shortenTitle(title: string | string, maxLenght: number = 32) {
-    if (title.length > maxLenght)
-      return title.substring(0, maxLenght - 3) + '...';
-    else {
-      return title;
-    }
+    // console.log(title.length);
+    // if (title.length > maxLenght) {
+    //   return title.substring(0, maxLenght - 3) + '...';
+    // } else {
+     return title;
+    //}
   }
 }

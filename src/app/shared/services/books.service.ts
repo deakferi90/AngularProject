@@ -23,7 +23,7 @@ export class BooksService {
     return this.http.delete(`${this.getAllBooks()}/${id}`)
   }
 
-  public editBook(book: object[], id: number) {
-    return this.http.put(`${this.getAllBooks()}/${id}`, book)
-  }
+  // public editBook(book: object[], id: number) {
+  //   return this.http.put(`${this.getAllBooks()}/${id}`, book)
+  // }
 }

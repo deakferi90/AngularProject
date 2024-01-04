@@ -403,17 +403,6 @@
       "year": 1832
     },
     {
-      "id": 39,
-      "author": "Nikolai Gogol",
-      "country": "Russia",
-      "imageLink": "assets/images/dead-souls.jpg",
-      "language": "Russian",
-      "link": "https://en.wikipedia.org/wiki/Dead_Souls\n",
-      "pages": 432,
-      "title": "Dead Souls",
-      "year": 1842
-    },
-    {
       "id": 40,
       "author": "Günter Grass",
       "country": "Germany",
@@ -423,28 +412,6 @@
       "pages": 600,
       "title": "The Tin Drum",
       "year": 1959
-    },
-    {
-      "id": 41,
-      "author": "João Guimarães Rosa",
-      "country": "Brazil",
-      "imageLink": "assets/images/the-devil-to-pay-in-the-backlands.jpg",
-      "language": "Portuguese",
-      "link": "https://en.wikipedia.org/wiki/The_Devil_to_Pay_in_the_Backlands\n",
-      "pages": 494,
-      "title": "The Devil to Pay in the Backlands",
-      "year": 1956
-    },
-    {
-      "id": 42,
-      "author": "Knut Hamsun",
-      "country": "Norway",
-      "imageLink": "assets/images/hunger.jpg",
-      "language": "Norwegian",
-      "link": "https://en.wikipedia.org/wiki/Hunger_(Hamsun_novel)\n",
-      "pages": 176,
-      "title": "Hunger",
-      "year": 1890
     },
     {
       "id": 43,
@@ -491,17 +458,6 @@
       "year": 1879
     },
     {
-      "id": 47,
-      "author": "James Joyce",
-      "country": "Irish Free State",
-      "imageLink": "assets/images/ulysses.jpg",
-      "language": "English",
-      "link": "https://en.wikipedia.org/wiki/Ulysses_(novel)\n",
-      "pages": 228,
-      "title": "Ulysses",
-      "year": 1922
-    },
-    {
       "id": 48,
       "author": "Franz Kafka",
       "country": "Czechoslovakia",
@@ -533,28 +489,6 @@
       "pages": 352,
       "title": "The Castle",
       "year": 1926
-    },
-    {
-      "id": 51,
-      "author": "Kālidāsa",
-      "country": "India",
-      "imageLink": "assets/images/the-recognition-of-shakuntala.jpg",
-      "language": "Sanskrit",
-      "link": "https://en.wikipedia.org/wiki/Abhij%C3%B1%C4%81na%C5%9B%C4%81kuntalam\n",
-      "pages": 147,
-      "title": "The recognition of Shakuntala",
-      "year": 150
-    },
-    {
-      "id": 52,
-      "author": "Yasunari Kawabata",
-      "country": "Japan",
-      "imageLink": "assets/images/the-sound-of-the-mountain.jpg",
-      "language": "Japanese",
-      "link": "https://en.wikipedia.org/wiki/The_Sound_of_the_Mountain\n",
-      "pages": 288,
-      "title": "The Sound of the Mountain",
-      "year": 1954
     },
     {
       "id": 53,
@@ -630,7 +564,7 @@
       "language": "Russian",
       "link": "https://en.wikipedia.org/wiki/The_Death_of_Ivan_Ilyich\n",
       "pages": 92,
-      "title": "The Death of Ivan Ilyich and Ivanka",
+      "title": "The Death of Ivan Ilyich",
       "year": 1886
     },
     {
@@ -705,10 +639,6 @@
     {
       "id": 4,
       "value": "jhygtf"
-    },
-    {
-      "id": 3,
-      "value": "sddfs"
     }
   ]
 }
