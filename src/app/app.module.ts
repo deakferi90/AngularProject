@@ -28,6 +28,7 @@ import { todoReducer } from './ngrx/todo.reducer';
 import { BooksService } from './shared/services/books.service';
 import { BooksComponent } from './books/books.component';
 import { EffectsModule } from '@ngrx/effects';
+import { MatCardModule } from '@angular/material/card';
 //import { BookEffects } from './shared/effects/books.effects';
 
 
@@ -54,6 +55,7 @@ import { EffectsModule } from '@ngrx/effects';
     MaterialModule,
     MatButtonModule,
     MatToolbarModule,
+    MatCardModule,
     MatSliderModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ count: counterReducer, todo: todoReducer }),

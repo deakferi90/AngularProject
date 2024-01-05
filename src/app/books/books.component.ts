@@ -1,4 +1,5 @@
-import {  Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+// 
+import {  Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { BooksService } from '../shared/services/books.service';
 import { Book } from '../shared/interfaces/books.interface';
 import { HttpClient } from '@angular/common/http';
@@ -32,7 +33,7 @@ export class BooksComponent implements AfterViewInit {
   saveChanges() {
     if (this.selectedBook) {
       this.service.updateBook(this.selectedBook).subscribe(() => {
-        console.log('Changes saved for book:', this.selectedBook);
+        // console.log('Changes saved for book:', this.selectedBook);
         this.selectedBook = null;
         this.getBooks(); // Refresh the book list after the update
         this.scrollPage.nativeElement.scrollIntoView({
@@ -88,7 +89,7 @@ export class BooksComponent implements AfterViewInit {
 
   shortenTitle(title: string | string, maxLenght: number = 32) {
     if (title.length > maxLenght) {
-      return title.substring(0, maxLenght - 3) + '...'; //should implement this
+      return title.substring(0, maxLenght - 3) + '...';
     } else {
      return title;
     }

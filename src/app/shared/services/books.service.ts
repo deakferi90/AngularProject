@@ -29,8 +29,4 @@ export class BooksService {
     const url = `${this.getAllBooks()}/${updatedBook.id}`;
     return this.http.put(url, updatedBook);
   }
-
-  // public editBook(book: object[], id: number) {
-  //   return this.http.put(`${this.getAllBooks()}/${id}`, book)
-  // }
 }

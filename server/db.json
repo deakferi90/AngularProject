@@ -150,17 +150,6 @@
       "year": 1932
     },
     {
-      "id": 17,
-      "author": "Miguel de Cervantes",
-      "country": "Spain",
-      "imageLink": "assets/images/don-quijote-de-la-mancha.jpg",
-      "language": "Spanish",
-      "link": "https://en.wikipedia.org/wiki/Don_Quixote\n",
-      "pages": 1056,
-      "title": "Don Quijote De La Mancha",
-      "year": 1610
-    },
-    {
       "id": 18,
       "author": "Geoffrey Chaucer",
       "country": "England",
@@ -487,7 +476,7 @@
       "language": "Greek",
       "link": "https://en.wikipedia.org/wiki/Zorba_the_Greek\n",
       "pages": 368,
-      "title": "Zorba the Greek",
+      "title": "Zorba the Greek and the Italian and also Portuguese",
       "year": 1946
     },
     {
@@ -602,7 +591,7 @@
     },
     {
       "id": 67,
-      "author": "Marguerite Yourcenar",
+      "author": "Marguerite Yource",
       "country": "France/Belgium",
       "imageLink": "assets/images/memoirs-of-hadrian.jpg",
       "language": "French",
@@ -614,20 +603,16 @@
   ],
   "ngrx": [
     {
-      "id": 1,
-      "value": "rtrtrrt"
-    },
-    {
       "id": 2,
       "value": "trrttr"
     },
     {
-      "id": 5,
-      "value": "kjhhg"
+      "id": 3,
+      "value": "qwer"
     },
     {
       "id": 4,
-      "value": "jhygtf"
+      "value": "ferik"
     }
   ]
 }
