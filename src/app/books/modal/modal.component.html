@@ -1,1 +1,12 @@
-<p>modal works!</p>
+<mat-card class="edit-book-card">
+    <mat-form-field>
+      <input matInput placeholder="Title" type="text" name="title" [(ngModel)]="selectedBook.title" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Author" type="text" name="author" [(ngModel)]="selectedBook.author" required>
+    </mat-form-field>
+    <mat-card-actions>
+      <button type="submit" mat-button color="primary" (click)="saveChanges()">Submit</button>
+      <button type="button" class="scroll-top" (click)="cancel()" mat-button>Cancel</button>
+    </mat-card-actions>
+  </mat-card>

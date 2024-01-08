@@ -2,6 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from '../interfaces/books.interface';
+import { ModalComponent } from 'src/app/books/modal/modal.component';
+import { ModalService } from './modal.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 const BASE_URL = 'http://localhost:3000';
 
@@ -11,7 +15,7 @@ const BASE_URL = 'http://localhost:3000';
 export class BooksService {
   model: string = 'books';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private service: ModalService, private modalService: NgbModal) { }
 
   public getBooks() {
     return this.http.get<object[]>(this.getAllBooks())
@@ -28,5 +32,11 @@ export class BooksService {
   updateBook(updatedBook: Book): Observable<any> {
     const url = `${this.getAllBooks()}/${updatedBook.id}`;
     return this.http.put(url, updatedBook);
+  }
+
+  openModal() {
+    this.modalService.open(ModalComponent, {
+      windowClass: 'custom-modal',
+    });
   }
 }

@@ -107,7 +107,7 @@
     },
     {
       "id": 11,
-      "author": "Giovanni Boccaccio",
+      "author": "Deak Feri",
       "country": "Italy",
       "imageLink": "assets/images/the-decameron.jpg",
       "language": "Italian",
@@ -140,7 +140,7 @@
     },
     {
       "id": 16,
-      "author": "Louis-Ferdinand Célineee",
+      "author": "Louis-Ferdinand Céline",
       "country": "France",
       "imageLink": "assets/images/voyage-au-bout-de-la-nuit.jpg",
       "language": "French",
@@ -611,8 +611,16 @@
       "value": "qwer"
     },
     {
+      "id": 1,
+      "value": "werty"
+    },
+    {
       "id": 4,
-      "value": "ferik"
+      "value": "fghgf"
+    },
+    {
+      "id": 5,
+      "value": "asddf"
     }
   ]
 }

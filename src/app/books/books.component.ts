@@ -20,7 +20,7 @@ export class BooksComponent implements AfterViewInit {
   selectedBook: any;
   selectedBookIndex: number | null = null;
   bookEdit: boolean = false;
-  constructor(private service: BooksService, private http: HttpClient) { }
+  constructor(private service: BooksService) { }
 
   scrollToTop() {
     this.bookEdit = false;
@@ -43,6 +43,8 @@ export class BooksComponent implements AfterViewInit {
         });
       });
     }
+    let editb = document.querySelector('.modal');
+    editb?.classList.remove('open');
   }
 
   getBooks(): void {
@@ -62,15 +64,16 @@ export class BooksComponent implements AfterViewInit {
   }
 
   editBook(selectedBook: Book) {
-    // console.log('edited the book:', selectedBook);
+    let editb = document.querySelector('.modal');
+    editb?.classList.add('open');
     this.bookEdit = true;
     this.selectedBook = selectedBook;
   
-    // Wait for a short delay to ensure the form is fully rendered so the scrolling works
     setTimeout(() => {
       let form = document.querySelector('.form-item');
       form?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-    }, 0); // Adjust the delay as needed
+    }, 0);
+    
   }
 
   cancel() {
@@ -80,6 +83,8 @@ export class BooksComponent implements AfterViewInit {
       inline: "nearest",
     });
     this.bookEdit = false;
+    let editb = document.querySelector('.modal');
+    editb?.classList.remove('open');
   }
 
   deleteBook(event: Event, id: number) {

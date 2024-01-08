@@ -1,6 +1,9 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Subscription } from 'rxjs';
 import { Book } from 'src/app/shared/interfaces/books.interface';
 import { BooksService } from 'src/app/shared/services/books.service';
+
 
 @Component({
   selector: 'app-modal',
@@ -8,7 +11,7 @@ import { BooksService } from 'src/app/shared/services/books.service';
   styleUrls: ['./modal.component.css']
 })
 
-export class ModalComponent {
+export class ModalComponent implements OnDestroy{
   @Input() selectedBook: any;
   @Input() showModal: boolean = false;
   //@Output() submitEvent = new EventEmitter<string>();
@@ -16,8 +19,9 @@ export class ModalComponent {
   //books$!: Observable<Book[] | any[]> //is when async pipe is being used
   filteredBooks!: Book[];
   bookEdit: boolean = false;
+  sub!: Subscription;
   @ViewChild('inputElement', { static: false }) inputElement!: ElementRef;
-  constructor(private service: BooksService) { }
+  constructor(private service: BooksService, public activeModal: NgbActiveModal) { }
 
   getBooks(): void {
     this.service.getBooks().subscribe(data => {
@@ -30,7 +34,7 @@ export class ModalComponent {
 
   saveChanges() {
     if (this.selectedBook) {
-      this.service.updateBook(this.selectedBook).subscribe(() => {
+      this.sub = this.service.updateBook(this.selectedBook).subscribe(() => {
         // console.log('Changes saved for book:', this.selectedBook);
         this.selectedBook = null;
         this.getBooks(); // Refresh the book list after the update
@@ -40,15 +44,10 @@ export class ModalComponent {
   }
 
   cancel() {
-    // this.scrollPage.nativeElement.scrollIntoView({
-    //   behavior: "smooth",
-    //   block: "start",
-    //   inline: "nearest",
-    // });
     this.bookEdit = false;
   }
 
-  // onSubmit() {
-  //   this.submitEvent.emit(this.selectedBook);
-  // }
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 }

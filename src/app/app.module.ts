@@ -29,6 +29,10 @@ import { BooksService } from './shared/services/books.service';
 import { BooksComponent } from './books/books.component';
 import { EffectsModule } from '@ngrx/effects';
 import { MatCardModule } from '@angular/material/card';
+//import { MatDialog } from '@angular/material/dialog';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from './books/modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 //import { BookEffects } from './shared/effects/books.effects';
 
 
@@ -43,11 +47,14 @@ import { MatCardModule } from '@angular/material/card';
     UsersComponent,
     UsersDetailsComponent,
     NgrxComponent,
-    BooksComponent
+    BooksComponent,
+    ModalComponent,
   ],
   imports: [
+    NgbModule,
     CommonModule,
     BrowserModule,
+    MatDialogModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
