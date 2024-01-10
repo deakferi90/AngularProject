@@ -1,8 +1,7 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-// import Chart from 'chart.js/auto'
 import { Chart, registerables } from 'chart.js'
-
 Chart.register(...registerables)
+// import Chart from 'chart.js/auto' - or you can write it in one line
 
 @Component({
   selector: 'app-chart',
@@ -25,7 +24,7 @@ export class ChartComponent implements AfterViewInit  {
       data: {
         labels: ['Tokyo', 'Cluj-Napoca', 'Mexico City', 'Shanghai'],
         datasets: [{
-          data: [500, 50, 2424, 14040],
+          data: [13960000 , 308343, 22505315, 29867918],
           borderColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896'],
           backgroundColor: ['#2196f38c', '#f443368c', '#3f51b570', '#00968896'],
           borderWidth: 1
@@ -36,5 +35,6 @@ export class ChartComponent implements AfterViewInit  {
         maintainAspectRatio: false
       }
     });
+    return true;
   }
 }

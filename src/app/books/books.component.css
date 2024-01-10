@@ -171,3 +171,7 @@
 .scroll-top {
     cursor: pointer;
 }
+
+.hidden {
+    display: none;
+}

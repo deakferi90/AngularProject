@@ -30,6 +30,7 @@ export class BooksComponent implements AfterViewInit {
   }
 
   saveChanges() {
+    let sideNav = document.querySelector('.mat-sidenav');
     if (this.selectedBook) {
       this.service.updateBook(this.selectedBook).subscribe(() => {
         this.selectedBook = null;
@@ -38,6 +39,7 @@ export class BooksComponent implements AfterViewInit {
     }
     let editb = document.querySelector('.modal');
     editb?.classList.remove('open');
+    sideNav?.classList.remove('hidden');
   }
 
   getBooks(): void {
@@ -57,6 +59,8 @@ export class BooksComponent implements AfterViewInit {
   }
 
   editBook(selectedBook: Book) {
+    let sideNav = document.querySelector('.mat-sidenav');
+    sideNav?.classList.add('hidden');
     let editb = document.querySelector('.modal');
     editb?.classList.add('open');
     this.bookEdit = true;
@@ -69,9 +73,11 @@ export class BooksComponent implements AfterViewInit {
     //   block: "start",
     //   inline: "nearest",
     // });
+    let sideNav = document.querySelector('.mat-sidenav');
     this.bookEdit = false;
     let editb = document.querySelector('.modal');
     editb?.classList.remove('open');
+    sideNav?.classList.remove('hidden');
   }
 
   deleteBook(event: Event, id: number) {

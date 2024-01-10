@@ -1,0 +1,26 @@
+.chart-title {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#myChart {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#chartContainer {
+    position: relative;
+    width: -webkit-fill-available;
+    height: 50vh;
+}
