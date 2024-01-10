@@ -14,7 +14,8 @@ export class AppComponent {
     {path: '/users', icon: 'person', title: 'Users'},
     { path: '/**', redirectTo: "/home" },
     { path: '/ngrx', icon: 'store', title: "Ngrx" },
-    {path: '/books', icon: 'book', title: 'Books'}
+    {path: '/books', icon: 'book', title: 'Books'},
+    {path: 'chart', icon:'donut_large', title: 'Chart'}
   ];
   constructor(private router: Router) { }
 

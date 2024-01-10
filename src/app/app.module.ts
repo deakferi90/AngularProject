@@ -33,6 +33,7 @@ import { MatCardModule } from '@angular/material/card';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './books/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ChartComponent } from './chart/chart.component';
 //import { BookEffects } from './shared/effects/books.effects';
 
 
@@ -49,6 +50,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     NgrxComponent,
     BooksComponent,
     ModalComponent,
+    ChartComponent
   ],
   imports: [
     NgbModule,
@@ -67,7 +69,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     ReactiveFormsModule,
     StoreModule.forRoot({ count: counterReducer, todo: todoReducer }),
     StoreDevtoolsModule.instrument(),
-    // EffectsModule.forRoot([BookEffects]),
   ],
   providers: [
     BooksService,
