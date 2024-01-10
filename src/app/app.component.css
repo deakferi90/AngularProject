@@ -325,7 +325,6 @@ svg#clouds {
 }
 
 .mat-drawer-side {
-  z-index: 2;
   margin-top: 2px;
   border-top: 1px solid lightgray;
   border-top-right-radius: 20px;

@@ -24,8 +24,8 @@
     {
       "id": 4,
       "title": "Just added another one",
-      "description": "This is updating in the JSON file",
-      "percent": 25,
+      "description": "This is updddating in the JSON file",
+      "percent": 35,
       "favorite": true
     }
   ],
@@ -93,17 +93,6 @@
       "pages": 160,
       "title": "The Epic Of Gilgamesh",
       "year": 1700
-    },
-    {
-      "id": 9,
-      "author": "Honoré de Balzac",
-      "country": "France",
-      "imageLink": "assets/images/le-pere-goriot.jpg",
-      "language": "French",
-      "link": "https://en.wikipedia.org/wiki/Le_P%C3%A8re_Goriot\n",
-      "pages": 443,
-      "title": "Le Père Goriot",
-      "year": 1835
     },
     {
       "id": 11,
@@ -616,11 +605,7 @@
     },
     {
       "id": 4,
-      "value": "fghgf"
-    },
-    {
-      "id": 5,
-      "value": "asddf"
+      "value": "dqwer"
     }
   ]
 }

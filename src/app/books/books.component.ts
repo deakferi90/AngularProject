@@ -2,7 +2,6 @@
 import {  Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { BooksService } from '../shared/services/books.service';
 import { Book } from '../shared/interfaces/books.interface';
-import { HttpClient } from '@angular/common/http';
 //import { Observable, map } from 'rxjs'; -used if async pipe subscription is being implemented
 @Component({
   selector: 'app-books',
@@ -33,14 +32,8 @@ export class BooksComponent implements AfterViewInit {
   saveChanges() {
     if (this.selectedBook) {
       this.service.updateBook(this.selectedBook).subscribe(() => {
-        // console.log('Changes saved for book:', this.selectedBook);
         this.selectedBook = null;
         this.getBooks(); // Refresh the book list after the update
-        this.scrollPage.nativeElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest",
-        });
       });
     }
     let editb = document.querySelector('.modal');
@@ -68,20 +61,14 @@ export class BooksComponent implements AfterViewInit {
     editb?.classList.add('open');
     this.bookEdit = true;
     this.selectedBook = selectedBook;
-  
-    setTimeout(() => {
-      let form = document.querySelector('.form-item');
-      form?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-    }, 0);
-    
   }
 
   cancel() {
-    this.scrollPage.nativeElement.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "nearest",
-    });
+    // this.scrollPage.nativeElement.scrollIntoView({
+    //   behavior: "smooth",
+    //   block: "start",
+    //   inline: "nearest",
+    // });
     this.bookEdit = false;
     let editb = document.querySelector('.modal');
     editb?.classList.remove('open');
