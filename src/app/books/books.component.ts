@@ -37,18 +37,22 @@ export class BooksComponent implements AfterViewInit {
         this.getBooks();
       });
     }
-  
+
+    let sideNav = document.querySelector('.mat-sidenav');
+    this.bookEdit = false;
     let editc = document.querySelector('.edit-book-card');
 
     setTimeout(() => {
       editc?.classList.add('close');
     }, 0);
-  
+
     setTimeout(() => {
       let editb = document.querySelector('.modal');
       editb?.classList.remove('open');
-      // editc?.classList.remove('close');
-    }, 450);
+      editc?.classList.remove('close');
+      sideNav?.classList.remove('hidden');
+
+    }, 250);
   }
 
   getBooks(): void {
@@ -68,21 +72,19 @@ export class BooksComponent implements AfterViewInit {
   }
 
   editBook(selectedBook: Book) {
-    let sideNav = document.querySelector('.mat-sidenav');
-    sideNav?.classList.add('hidden');
-
     let editb = document.querySelector('.modal');
     // let editc = document.querySelector('.edit-book-card');
 
     editb?.classList.add('open');
     this.bookEdit = true;
     this.selectedBook = selectedBook;
+    let sideNav = document.querySelector('.mat-sidenav');
+    sideNav?.classList.add('hidden');
   }
 
   cancel() {
     let sideNav = document.querySelector('.mat-sidenav');
     this.bookEdit = false;
-    sideNav?.classList.remove('hidden');
 
     let editb = document.querySelector('.modal');
     let editc = document.querySelector('.edit-book-card');
@@ -94,7 +96,8 @@ export class BooksComponent implements AfterViewInit {
     setTimeout(() => {
       editb?.classList.remove('open');
       editc?.classList.remove('close');
-    }, 150);
+      sideNav?.classList.remove('hidden');
+    }, 250);
   }
 
   deleteBook(event: Event, id: number) {
