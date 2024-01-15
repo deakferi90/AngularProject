@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
@@ -29,11 +29,15 @@ import { BooksService } from './shared/services/books.service';
 import { BooksComponent } from './books/books.component';
 import { EffectsModule } from '@ngrx/effects';
 import { MatCardModule } from '@angular/material/card';
-//import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './books/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ChartComponent } from './chart/chart.component';
+import { MatInputModule } from '@angular/material/input';
+import { AngularMaterialComponent } from './angular-material/angular-material.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { DialogOverviewExampleComponent } from './angular-material/dialog-overview-example/dialog-overview-example.component';
 //import { BookEffects } from './shared/effects/books.effects';
 
 
@@ -50,15 +54,19 @@ import { ChartComponent } from './chart/chart.component';
     NgrxComponent,
     BooksComponent,
     ModalComponent,
-    ChartComponent
+    ChartComponent,
+    DialogOverviewExampleComponent
   ],
   imports: [
+    AngularMaterialComponent,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
     NgbModule,
     CommonModule,
     BrowserModule,
     MatDialogModule,
     AppRoutingModule,
-    FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
@@ -74,7 +82,9 @@ import { ChartComponent } from './chart/chart.component';
     BooksService,
     CoursesService,
     LessonsService,
+    MatDialog
   ],
-  bootstrap: [AppComponent]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent, MatDialog]
 })
 export class AppModule { }

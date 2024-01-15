@@ -96,7 +96,7 @@
     },
     {
       "id": 11,
-      "author": "Deak Feri",
+      "author": "Deak Ferenc",
       "country": "Italy",
       "imageLink": "assets/images/the-decameron.jpg",
       "language": "Italian",
@@ -592,20 +592,12 @@
   ],
   "ngrx": [
     {
-      "id": 2,
-      "value": "trrttr"
-    },
-    {
-      "id": 3,
-      "value": "qwer"
-    },
-    {
       "id": 1,
-      "value": "werty"
+      "value": "Deak Ferenc"
     },
     {
-      "id": 4,
-      "value": "asdse"
+      "id": 2,
+      "value": "Deak Jozsef"
     }
   ]
 }

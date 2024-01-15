@@ -7,6 +7,7 @@ import { UsersDetailsComponent } from './users/users-details/users-details.compo
 import { NgrxComponent } from './ngrx/ngrx.component';
 import { BooksComponent } from './books/books.component';
 import { ChartComponent } from './chart/chart.component';
+import { AngularMaterialComponent } from './angular-material/angular-material.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'ngrx', component: NgrxComponent },
   {path: 'books', component: BooksComponent},
   {path: 'chart', component: ChartComponent},
+  {path: 'ang-mat', component: AngularMaterialComponent},
   {path: '**', redirectTo: '/home'}
 ];
 

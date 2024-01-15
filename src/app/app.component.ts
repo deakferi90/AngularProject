@@ -15,7 +15,8 @@ export class AppComponent {
     { path: '/**', redirectTo: "/home" },
     { path: '/ngrx', icon: 'store', title: "Ngrx" },
     {path: '/books', icon: 'book', title: 'Books'},
-    {path: 'chart', icon:'donut_large', title: 'Chart'}
+    {path: '/chart', icon:'donut_large', title: 'Chart'},
+    {path: '/ang-mat', icon: 'account_balance', title: 'AngMat'}
   ];
   constructor(private router: Router) { }
 

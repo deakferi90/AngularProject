@@ -113,7 +113,7 @@
     height: auto;
     position: absolute;
     top: calc(50% - 125px);
-    left: 0px;
+    left: -35px;
 }
 
 .edit-book-card {
@@ -150,9 +150,38 @@
     display: block;
 }
 
+@keyframes slideIn {
+    from {
+        top: -500px;
+    }
+
+    to {
+        top: 0px;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: -500px;
+    }
+}
+
 .edit-book-card {
     width: 100%;
-    /* Adjust the width as needed */
+    animation: slideIn 1000;
+    animation-duration: 0.35s;
+    animation-iteration-count: 1;
+}
+
+.close {
+    width: 100%;
+    animation: slideOut 1000;
+    animation-duration: 0.35s;
+    animation-iteration-count: 1;
 }
 
 .mat-form-field {
@@ -170,8 +199,4 @@
 
 .scroll-top {
     cursor: pointer;
-}
-
-.hidden {
-    display: none;
 }

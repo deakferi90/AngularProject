@@ -29,6 +29,11 @@ export class BooksComponent implements AfterViewInit {
     this.getBooks();
   }
 
+  closeMatModal() {
+    let bCard = document.querySelector('edit-book-card');
+    bCard?.classList.add('cancel');
+  }
+
   saveChanges() {
     let sideNav = document.querySelector('.mat-sidenav');
     if (this.selectedBook) {
@@ -40,6 +45,7 @@ export class BooksComponent implements AfterViewInit {
     let editb = document.querySelector('.modal');
     editb?.classList.remove('open');
     sideNav?.classList.remove('hidden');
+    this.closeMatModal();
   }
 
   getBooks(): void {
@@ -73,6 +79,7 @@ export class BooksComponent implements AfterViewInit {
     //   block: "start",
     //   inline: "nearest",
     // });
+    this.closeMatModal();
     let sideNav = document.querySelector('.mat-sidenav');
     this.bookEdit = false;
     let editb = document.querySelector('.modal');
