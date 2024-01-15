@@ -1,7 +1,8 @@
 // 
-import {  Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { BooksService } from '../shared/services/books.service';
 import { Book } from '../shared/interfaces/books.interface';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 //import { Observable, map } from 'rxjs'; -used if async pipe subscription is being implemented
 @Component({
   selector: 'app-books',
@@ -19,33 +20,35 @@ export class BooksComponent implements AfterViewInit {
   selectedBook: any;
   selectedBookIndex: number | null = null;
   bookEdit: boolean = false;
-  constructor(private service: BooksService) { }
+  constructor(private service: BooksService, private modalService: NgbModal) { }
 
-  scrollToTop() {
-    this.bookEdit = false;
-  }
+  // scrollToTop() {
+  //   this.bookEdit = false;
+  // }
 
   ngAfterViewInit(): void {
     this.getBooks();
   }
 
-  closeMatModal() {
-    let bCard = document.querySelector('edit-book-card');
-    bCard?.classList.add('cancel');
-  }
-
   saveChanges() {
-    let sideNav = document.querySelector('.mat-sidenav');
     if (this.selectedBook) {
       this.service.updateBook(this.selectedBook).subscribe(() => {
         this.selectedBook = null;
-        this.getBooks(); // Refresh the book list after the update
+        this.getBooks();
       });
     }
-    let editb = document.querySelector('.modal');
-    editb?.classList.remove('open');
-    sideNav?.classList.remove('hidden');
-    this.closeMatModal();
+  
+    let editc = document.querySelector('.edit-book-card');
+
+    setTimeout(() => {
+      editc?.classList.add('close');
+    }, 0);
+  
+    setTimeout(() => {
+      let editb = document.querySelector('.modal');
+      editb?.classList.remove('open');
+      // editc?.classList.remove('close');
+    }, 450);
   }
 
   getBooks(): void {
@@ -67,24 +70,31 @@ export class BooksComponent implements AfterViewInit {
   editBook(selectedBook: Book) {
     let sideNav = document.querySelector('.mat-sidenav');
     sideNav?.classList.add('hidden');
+
     let editb = document.querySelector('.modal');
+    // let editc = document.querySelector('.edit-book-card');
+
     editb?.classList.add('open');
     this.bookEdit = true;
     this.selectedBook = selectedBook;
   }
 
   cancel() {
-    // this.scrollPage.nativeElement.scrollIntoView({
-    //   behavior: "smooth",
-    //   block: "start",
-    //   inline: "nearest",
-    // });
-    this.closeMatModal();
     let sideNav = document.querySelector('.mat-sidenav');
     this.bookEdit = false;
-    let editb = document.querySelector('.modal');
-    editb?.classList.remove('open');
     sideNav?.classList.remove('hidden');
+
+    let editb = document.querySelector('.modal');
+    let editc = document.querySelector('.edit-book-card');
+
+    setTimeout(() => {
+      editc?.classList.add('close');
+    }, 0);
+
+    setTimeout(() => {
+      editb?.classList.remove('open');
+      editc?.classList.remove('close');
+    }, 150);
   }
 
   deleteBook(event: Event, id: number) {
@@ -96,7 +106,20 @@ export class BooksComponent implements AfterViewInit {
     if (title.length > maxLenght) {
       return title.substring(0, maxLenght - 3) + '...';
     } else {
-     return title;
+      return title;
     }
+  }
+
+  open(content: any) {
+    const options: NgbModalOptions = {
+      backdrop: 'static',
+      keyboard: false
+    };
+
+    this.modalService.open(content, options);
+  }
+
+  close() {
+    this.modalService.dismissAll();
   }
 }

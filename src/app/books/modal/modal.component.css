@@ -3,36 +3,18 @@
     justify-content: center;
     width: 200px;
     height: auto;
-    background: white;
+    background: red;
     position: absolute;
     top: 50%;
     left: 50%;
     z-index: 100;
 }
 
-:host {
-    display: none;
-    position: absolute;
-    top: calc(50% - 100px);
-    left: calc(50% - 100px);
-    background: #fff;
-    border-radius: 8px;
-    width: 200px;
-    height: 200px;
-    padding: 16px;
-}
-
 .cdk-dialog-container {
     display: block;
-    background: #fff;
-}
-
-.modal {
-    width: 100%;
-    height: 100%;
 }
 
 .custom-modal {
     max-width: 400px;
     width: 100%;
-  }
+}

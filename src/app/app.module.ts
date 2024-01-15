@@ -27,10 +27,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { todoReducer } from './ngrx/todo.reducer';
 import { BooksService } from './shared/services/books.service';
 import { BooksComponent } from './books/books.component';
-import { EffectsModule } from '@ngrx/effects';
+// import { EffectsModule } from '@ngrx/effects';
 import { MatCardModule } from '@angular/material/card';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from './books/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ChartComponent } from './chart/chart.component';
@@ -55,14 +54,13 @@ import { DialogOverviewExampleComponent } from './angular-material/dialog-overvi
     BooksComponent,
     ModalComponent,
     ChartComponent,
-    DialogOverviewExampleComponent
+    DialogOverviewExampleComponent,
   ],
   imports: [
     AngularMaterialComponent,
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
-    NgbModule,
     CommonModule,
     BrowserModule,
     MatDialogModule,

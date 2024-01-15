@@ -162,7 +162,7 @@
 
 @keyframes slideOut {
     from {
-        top: 0;
+        top: 0px;
     }
 
     to {
@@ -199,4 +199,8 @@
 
 .scroll-top {
     cursor: pointer;
+}
+
+.mdc-dialog__container {
+    padding: 20px;
 }

@@ -85,7 +85,7 @@
     },
     {
       "id": 4,
-      "author": "Summer Author",
+      "author": "Summer Authors",
       "country": "Sumer and Akkadian Empire",
       "imageLink": "assets/images/the-epic-of-gilgamesh.jpg",
       "language": "Akkadian",
@@ -93,39 +93,6 @@
       "pages": 160,
       "title": "The Epic Of Gilgamesh",
       "year": 1700
-    },
-    {
-      "id": 11,
-      "author": "Deak Ferenc",
-      "country": "Italy",
-      "imageLink": "assets/images/the-decameron.jpg",
-      "language": "Italian",
-      "link": "https://en.wikipedia.org/wiki/The_Decameron\n",
-      "pages": 1024,
-      "title": "The Decameron",
-      "year": 1351
-    },
-    {
-      "id": 13,
-      "author": "Emily Brontë",
-      "country": "United Kingdom",
-      "imageLink": "assets/images/wuthering-heights.jpg",
-      "language": "English",
-      "link": "https://en.wikipedia.org/wiki/Wuthering_Heights\n",
-      "pages": 342,
-      "title": "Wuthering Heights",
-      "year": 1847
-    },
-    {
-      "id": 15,
-      "author": "Paul Celan",
-      "country": "Romania, France",
-      "imageLink": "assets/images/poems-paul-celan.jpg",
-      "language": "German",
-      "link": "\n",
-      "pages": 320,
-      "title": "Poems",
-      "year": 1952
     },
     {
       "id": 16,
@@ -170,17 +137,6 @@
       "pages": 320,
       "title": "Nostromo",
       "year": 1904
-    },
-    {
-      "id": 21,
-      "author": "Charles Dickens",
-      "country": "United Kingdom",
-      "imageLink": "assets/images/great-expectations.jpg",
-      "language": "English",
-      "link": "https://en.wikipedia.org/wiki/Great_Expectations\n",
-      "pages": 194,
-      "title": "Great Expectations",
-      "year": 1861
     },
     {
       "id": 22,

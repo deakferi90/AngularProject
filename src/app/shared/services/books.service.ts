@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 import { Book } from '../interfaces/books.interface';
 import { ModalComponent } from 'src/app/books/modal/modal.component';
 import { ModalService } from './modal.service';
-import { MatDialog } from '@angular/material/dialog';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 const BASE_URL = 'http://localhost:3000';
 

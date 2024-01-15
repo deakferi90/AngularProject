@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="background">
-        <div mat-dialog class="modal">
+        <mat-dialog-content class="modal">
             <form #editForm="ngForm" *ngIf="selectedBook !== null && selectedBook!== undefined" class="form-item">
                 <mat-card class="edit-book-card">
                     <mat-form-field>
@@ -32,11 +32,11 @@
                             required>
                     </mat-form-field>
                     <div mat-card-actions>
-                        <button type="submit" mat-button color="primary" (click)="saveChanges()">Submit</button>
+                        <button type="button" mat-button color="primary" (click)="saveChanges()">Submit</button>
                         <button type="button" class="scroll-top" (click)="cancel()" mat-button>Cancel</button>
                     </div>
                 </mat-card>
             </form>
-        </div>
+        </mat-dialog-content>
     </div>
 </div>
