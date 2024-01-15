@@ -81,10 +81,9 @@ import { DialogOverviewExampleComponent } from './angular-material/dialog-overvi
   providers: [
     BooksService,
     CoursesService,
-    LessonsService,
-    MatDialog
+    LessonsService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent, MatDialog]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

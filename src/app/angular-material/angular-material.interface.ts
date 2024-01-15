@@ -1,4 +1,4 @@
 export interface DialogData {
-    animal: string;
+    familyName: string;
     name: string;
   }

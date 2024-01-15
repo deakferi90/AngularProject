@@ -28,21 +28,19 @@ import { DialogOverviewExampleComponent } from './dialog-overview-example/dialog
 export class AngularMaterialComponent implements DialogData {
 
   constructor(public dialog: MatDialog) {}
-  animal!: string;
+  familyName!: string;
   name!: string;
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleComponent, {
-      data: {name: this.name, animal: this.animal},
+      data: {name: this.name, familyName: this.familyName},
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.animal = result;
+      this.familyName = result;
     });
   }
 }
 
-
-export { DialogData };
 
